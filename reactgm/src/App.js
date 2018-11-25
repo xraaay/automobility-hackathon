@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styles from "./App.module.css";
-import { Modal } from 'react-bootstrap'; 
+import { BrowserRouter } from "react-router-dom";
+import Layout from "./Layout/Layout";
 
 const gm = window.gm;
 
@@ -20,18 +21,13 @@ class App extends Component {
 
   render() {
     return (
-      <React.Component>
-        <button className="btn btn-xl btn-outline-light">Find Me A Drill</button>
-
-        <Modal>
-          <Modal.Body>
-            <div className={styles.root}>
-              <div>VIN: {this.state.vin}</div>
-              <button onClick={this.handleClose}>Close</button>
-            </div>
-          </Modal.Body>
-        </Modal>
-      </React.Component>
+      <BrowserRouter>
+        <div className={styles.root}>
+          <div>VIN: {this.state.vin}</div>
+          <button onClick={this.handleClose}>Close</button>
+          <Layout />
+        </div>
+      </BrowserRouter>
     );
   }
 }
