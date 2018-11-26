@@ -4,19 +4,16 @@ import Test from '../containers/Test';
 import Homepage from '../containers/Homepage';
 import List from '../containers/List';
 import Shops from '../containers/Shops';
-
+import Transaction from '../containers/Transaction'
 class ContentRouter extends React.Component {
     render(){
         return (
             <React.Fragment>
                 <Switch>
                     <Route component={Homepage} />
-                    <Route path="/test" component={Test} />
                     <Route path="/list" component={List} />
-                    <Route exact path="/" component={Homepage} />
-                    {/* <Route path="/test" component={Test} /> */}
-                    <Route path="/transaction" component={Transaction} />
                     <Route path="/shops" component={Shops} />
+                    <Route path="/transaction" component={Transaction} />
                 </Switch>
             </React.Fragment>
         )
