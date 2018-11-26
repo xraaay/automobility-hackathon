@@ -2,6 +2,7 @@ import React from 'react'
 import swal from 'sweetalert2'
 import { connect } from 'react-redux'
 import { Modal } from 'react-bootstrap'
+// import map from '../image.png';
 
 class Shops extends React.Component {
 
@@ -11,38 +12,38 @@ class Shops extends React.Component {
         this.state = {
             shopList: []
         }
-
     }
+
     scrollToContent(content) {
-        switch(content) {
-          case 1:
-            this.section1.current.scrollIntoView({behavior: 'smooth'});
-            break;
-          case 2:
-            this.section2.current.scrollIntoView({behavior: 'smooth'});
+        switch (content) {
+            case 1:
+                this.section1.current.scrollIntoView({ behavior: 'smooth' });
+                break;
+            case 2:
+                this.section2.current.scrollIntoView({ behavior: 'smooth' });
         }
-      }
-      schedule = () => {
+    }
+    schedule = () => {
         const swalWithBootstrapButtons = swal.mixin({
-          confirmButtonClass: 'btn btn-success',
-          cancelButtonClass: 'btn btn-danger',
-          buttonsStyling: false,
+            confirmButtonClass: 'btn btn-success',
+            cancelButtonClass: 'btn btn-danger',
+            buttonsStyling: false,
         })
-        
+
         swalWithBootstrapButtons({
-          title: this.state.shopList.shops[0].shopName,
-          text: this.state.shopList.shops[0].address,
-          type: 'warning',
-          showCancelButton: true,
-          confirmButtonText: 'Yes, schedule appointment',
-          cancelButtonText: 'No, schedule later',
-          reverseButtons: true
+            title: this.state.shopList.shops[0].shopName,
+            text: this.state.shopList.shops[0].address,
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, schedule appointment',
+            cancelButtonText: 'No, schedule later',
+            reverseButtons: true
         }).then((result) => {
           if (result.value) {
             swalWithBootstrapButtons(
               'Scheduled!',
-              `your next appointment date is on ${this.props.appointmentsReducer.appointmentTimes[0]}`,
-              'success'
+              `Your next appointment date is on ${this.props.appointmentsReducer.appointmentTimes[0]}`,
+              'Success'
             )
           } else if (
             // Read more about handling dismissals
@@ -50,13 +51,13 @@ class Shops extends React.Component {
           ) {
             swalWithBootstrapButtons(
               'Cancelled',
-              'drive safe',
-              'error'
+              'Drive safe',
+              'Error'
             )
           }
         })
-      }
-      
+    }
+
     componentDidMount() {
         // console.log("check cdm")
         this.setState({
@@ -66,41 +67,30 @@ class Shops extends React.Component {
     }
 
     render() {
-        const listShops = this.props.appointmentsReducer.shops.map((shop,index) => {
-            debugger
+        const listShops = this.props.appointmentsReducer.shops.map((shop, index) => {
             return (
-                <tr onClick={()=>this.schedule()} style={{color:'black'}} key={index}>
+                <tr scope="row" onClick={() => this.props.history.push('/list')} style={{ color: 'white' }} key={index}>
                     <td>{shop.name}</td>
-                    <td><span>&nbsp;&nbsp;</span></td>
-                    <td><span>&nbsp;&nbsp;</span></td>
-                    <td><span>&nbsp;&nbsp;</span></td>
-                    <td><span>&nbsp;&nbsp;</span></td>
-                    <td><span>&nbsp;&nbsp;</span></td>
-                    <td><span>&nbsp;&nbsp;</span></td>
-                    <td><span>&nbsp;&nbsp;</span></td>
                     <td>{shop.distance}Mi.</td>
                 </tr>
             )
         })
+
         return (
             <React.Fragment>
                 <div ref={this.props.refProp} />
-                <h1 style={{color:'black'}} >check shops</h1>
-                <table style={{position:'center', margin:'auto'}}>
+                <h1 style={{ color: 'white' }} >Nearby Shops</h1>
+                {/* <table style={{position:'center', margin:'auto'}}> */}
+                <table className="table table-dark table-lg" style={{ fontSize: '20px' }}>
                     <thead>
                         <tr>
-                            <th>Shops</th>
-                            <th><span>&nbsp;&nbsp;</span></th>
-                            <th><span>&nbsp;&nbsp;</span></th>
-                            <th><span>&nbsp;&nbsp;</span></th>
-                            <th><span>&nbsp;&nbsp;</span></th>
-                            <th><span>&nbsp;&nbsp;</span></th>
-                            <th><span>&nbsp;&nbsp;</span></th>
-                            <th><span>&nbsp;&nbsp;</span></th>
-                            <th>Distance</th>
+                            <th scope="col" style={{ color: 'white' }} className="col-sm-11">Shops</th>
+                            <th scope="col" style={{ color: 'white' }} className="col-sm-1">Distance</th>
                         </tr>
                     </thead>
-                    <tbody>{listShops}</tbody>
+                    <tbody>
+                        {listShops}
+                    </tbody>
                 </table>
                 <button type="button" onClick={() => this.closeApp()}>Back</button>
 

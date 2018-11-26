@@ -1,5 +1,9 @@
 .root {
     margin-top: 100px;
     font-size: 2em;
-    color: white;
+    color: '#fff';
+}
+
+html body {
+    background-color: '#000';
 }
