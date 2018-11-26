@@ -2,6 +2,7 @@ import React from 'react'
 import swal from 'sweetalert2'
 import { connect } from 'react-redux'
 import { Modal } from 'react-bootstrap'
+import map from '../image.png';
 
 class Shops extends React.Component {
 
@@ -14,49 +15,49 @@ class Shops extends React.Component {
 
     }
     scrollToContent(content) {
-        switch(content) {
-          case 1:
-            this.section1.current.scrollIntoView({behavior: 'smooth'});
-            break;
-          case 2:
-            this.section2.current.scrollIntoView({behavior: 'smooth'});
+        switch (content) {
+            case 1:
+                this.section1.current.scrollIntoView({ behavior: 'smooth' });
+                break;
+            case 2:
+                this.section2.current.scrollIntoView({ behavior: 'smooth' });
         }
-      }
-      schedule = () => {
+    }
+    schedule = () => {
         const swalWithBootstrapButtons = swal.mixin({
-          confirmButtonClass: 'btn btn-success',
-          cancelButtonClass: 'btn btn-danger',
-          buttonsStyling: false,
+            confirmButtonClass: 'btn btn-success',
+            cancelButtonClass: 'btn btn-danger',
+            buttonsStyling: false,
         })
-        
+
         swalWithBootstrapButtons({
-          title: this.state.shopList.shops[0].shopName,
-          text: this.state.shopList.shops[0].address,
-          type: 'warning',
-          showCancelButton: true,
-          confirmButtonText: 'Yes, schedule appointment',
-          cancelButtonText: 'No, schedule later',
-          reverseButtons: true
+            title: this.state.shopList.shops[0].shopName,
+            text: this.state.shopList.shops[0].address,
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, schedule appointment',
+            cancelButtonText: 'No, schedule later',
+            reverseButtons: true
         }).then((result) => {
-          if (result.value) {
-            swalWithBootstrapButtons(
-              'Scheduled!',
-              `your next appointment date is on ${this.props.appointmentsReducer.appointmentTimes[0]}`,
-              'success'
-            )
-          } else if (
-            // Read more about handling dismissals
-            result.dismiss === swal.DismissReason.cancel
-          ) {
-            swalWithBootstrapButtons(
-              'Cancelled',
-              'drive safe',
-              'error'
-            )
-          }
+            if (result.value) {
+                swalWithBootstrapButtons(
+                    'Scheduled!',
+                    `your next appointment date is on ${this.props.appointmentsReducer.appointmentTimes[0]}`,
+                    'success'
+                )
+            } else if (
+                // Read more about handling dismissals
+                result.dismiss === swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons(
+                    'Cancelled',
+                    'drive safe',
+                    'error'
+                )
+            }
         })
-      }
-      
+    }
+
     componentDidMount() {
         // console.log("check cdm")
         this.setState({
@@ -66,17 +67,11 @@ class Shops extends React.Component {
     }
 
     render() {
-        const listShops = this.props.appointmentsReducer.shops.map((shop,index) => {
+        const listShops = this.props.appointmentsReducer.shops.map((shop, index) => {
             debugger
             return (
-                <tr onClick={()=>this.schedule()} style={{color:'black'}} key={index}>
+                <tr onClick={() => this.schedule()} style={{ color: 'black' }} key={index}>
                     <td>{shop.name}</td>
-                    <td><span>&nbsp;&nbsp;</span></td>
-                    <td><span>&nbsp;&nbsp;</span></td>
-                    <td><span>&nbsp;&nbsp;</span></td>
-                    <td><span>&nbsp;&nbsp;</span></td>
-                    <td><span>&nbsp;&nbsp;</span></td>
-                    <td><span>&nbsp;&nbsp;</span></td>
                     <td><span>&nbsp;&nbsp;</span></td>
                     <td>{shop.distance}Mi.</td>
                 </tr>
@@ -85,23 +80,27 @@ class Shops extends React.Component {
         return (
             <React.Fragment>
                 <div ref={this.props.refProp} />
-                <h1 style={{color:'black'}} >check shops</h1>
-                <table style={{position:'center', margin:'auto'}}>
-                    <thead>
-                        <tr>
-                            <th>Shops</th>
-                            <th><span>&nbsp;&nbsp;</span></th>
-                            <th><span>&nbsp;&nbsp;</span></th>
-                            <th><span>&nbsp;&nbsp;</span></th>
-                            <th><span>&nbsp;&nbsp;</span></th>
-                            <th><span>&nbsp;&nbsp;</span></th>
-                            <th><span>&nbsp;&nbsp;</span></th>
-                            <th><span>&nbsp;&nbsp;</span></th>
-                            <th>Distance</th>
-                        </tr>
-                    </thead>
-                    <tbody>{listShops}</tbody>
-                </table>
+                <h1 style={{ color: 'black'  }} >check shops</h1>
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-sm-6">
+                            <table>
+                                <thead>
+                                    <tr style={{ color: 'black' }}>
+                                        <th>Shops</th>
+                                        <th><span>&nbsp;&nbsp;</span></th>
+                                        <th>Distance</th>
+                                    </tr>
+                                </thead>
+                                <tbody>{listShops}</tbody>
+                            </table>
+                        </div>
+                        <div className="col-sm-6">
+                            <img src={map} style={{ maxWidth: '90%',maxHeight: '90%'}}/>
+                        </div>
+                    </div>
+                </div>
+
             </React.Fragment>
         )
     }

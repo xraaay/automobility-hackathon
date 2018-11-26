@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styles from "./App.module.css";
-import swal from 'sweetalert2' 
+// import swal from 'sweetalert2' 
 import { BrowserRouter } from "react-router-dom";
 import Layout from "./Layout/Layout";
 import { Provider } from 'react-redux';
