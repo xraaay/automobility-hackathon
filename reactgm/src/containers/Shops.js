@@ -2,7 +2,7 @@ import React from 'react'
 import swal from 'sweetalert2'
 import { connect } from 'react-redux'
 import { Modal } from 'react-bootstrap'
-import map from '../image.png';
+// import map from '../image.png';
 
 class Shops extends React.Component {
 
