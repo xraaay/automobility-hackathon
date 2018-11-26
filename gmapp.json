@@ -6,7 +6,7 @@
   "src": "src",
   "dist": "dist",
   "main": "index.html",
-  "icon": "qf.png",
+  "icon": {"src":"logo_2.PNG","sizes":"48x48"},
   "developer": "Developer",
   "category": "General",
   "type": "RemoteHigh",
