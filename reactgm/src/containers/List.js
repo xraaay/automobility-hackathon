@@ -1,69 +1,29 @@
 import React from 'react'
-import { Table } from 'react-bootstrap'
+import { ListGroup, ListGroupItem } from 'react-bootstrap'
 import { connect } from 'react-redux'
+import { Modal, Button } from 'react-bootstrap'
 
+const styles = {
+    color: '#fff',
+    backgroundColor: '#000',
+}
 class List extends React.Component {
 
     render() {
-        const apptList = this.props.appointmentsReducer ? 
-            this.props.appointmentsReducer.map( item => {
-                return (
-                    <React.Fragment>
-                        <td key={item.id}>
-                        {/* <td>{item.appointmentTime}</td> */}
-                        <td>{item.shopName}</td>
-                        <td>{item.address}</td>
-                        </td>
-                    </React.Fragment>
-                )
-            })
-            :null
+        const apptArr = this.props.appointmentsReducer.appointmentTimes;
+        const apptList = []
+        apptArr.forEach( item => {
+            apptList.push(<ListGroupItem style={styles}>{JSON.stringify(item)}</ListGroupItem>)
+        })
+        
         return (
             <React.Fragment>
-                {console.log(this.props.appointmentsReducer)}
-                <Table >
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Table heading</th>
-                            <th>Table heading</th>
-                            <th>Table heading</th>
-                            <th>Table heading</th>
-                            <th>Table heading</th>
-                            <th>Table heading</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
+                {console.log(this.props.appointmentsReducer.appointmentTimes)}
+                <div style={styles} className='container'>
+                    <ListGroup>
                         {apptList}
-                            <td>1</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                            <td>Table cell</td>
-                        </tr>
-                    </tbody>
-                </Table>
+                    </ListGroup>
+                </div>
             </React.Fragment>
         )
     }

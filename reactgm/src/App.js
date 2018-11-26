@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import styles from "./App.module.css";
+// import styles from "./App.module.css";
+import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import Layout from "./Layout/Layout";
 import { Provider } from 'react-redux';
@@ -29,7 +30,7 @@ class App extends Component {
     return (
       <Provider store={store}>
       <BrowserRouter>
-        <div className={styles.root}>
+        <div className='home'>
           <div>VIN: {this.state.vin}</div>
           <button onClick={this.handleClose}>Close</button>
           <Layout />
