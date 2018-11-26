@@ -2,6 +2,7 @@ import React from 'react';
 import ContentRouter from './ContentRouter'
 import { withRouter } from 'react-router-dom'
 import { Modal } from 'react-bootstrap'; 
+import SpeedCheckModal from '../containers/SpeedCheckModal';
 
 const gm = window.gm;
 class Layout extends React.Component {
@@ -10,9 +11,12 @@ class Layout extends React.Component {
 
         this.state = {
             odometer: null, 
-            show: null
+            show: null,
+            isCarMoving: false
         }
         this.handleClose = this.handleClose.bind(this); 
+        this.carMotionCheck = this.carMotionCheck.bind(this);
+        this.handleCloseModal = this.handleCloseModal.bind(this);
     }
 
     redirect = val => {
@@ -57,6 +61,23 @@ class Layout extends React.Component {
         this.setState({ show: false });
     }
 
+    handleCloseModal (closeModal) {
+        console.log(closeModal + ' parent close')
+        this.setState({ isCarMoving: closeModal })
+    }
+
+    carMotionCheck() {
+        const speed = gm.system.getSpeed();
+
+        if (speed === 0) {
+            this.setState({ isCarMoving: false })
+        }
+        else {
+            this.setState({ isCarMoving: true })
+            this.handleClose();
+        }
+    }
+
     render() {
         if (this.state.show == true) {
             console.log('hello')
@@ -70,6 +91,7 @@ class Layout extends React.Component {
                 <button type="button" onClick={e => {this.redirect(3)}}>Shops</button>
 
                 <ContentRouter />
+                <SpeedCheckModal speedCheck = {this.state.isCarMoving} handleCLoseModal = {this.handleCloseModal}/>
 
                 <Modal show={this.state.show} onHide={this.handleClose} animation={false} style={{ top: "25%" }} backdropStyle={{ opacity: 0.5 }}>
                     <Modal.Header>
@@ -89,7 +111,7 @@ class Layout extends React.Component {
                                 <p>Your mileage has reached {this.state.odometer}</p>
                                 <p>Would you like to schedule an appointment?</p>
                                 <div>
-                                    <button type="button" className="btn btn-default" onClick={e => this.handleClose(e)}>Schedule Now</button>
+                                    <button type="button" className="btn btn-default" onClick={e => this.carMotionCheck(e)}>Schedule Now</button>
                                     <button type="button" className="btn btn-default" onClick={e => this.handleClose(e)}>No, remind me later</button>
                                 </div>
                             </div>
