@@ -67,21 +67,21 @@ class Shops extends React.Component {
     }
 
     render() {
-        const listShops = this.props.appointmentsReducer.shops.map((shop,index) => {
+        const listShops = this.props.appointmentsReducer.shops.map((shop, index) => {
             return (
-                <tr scope="row" onClick={()=>this.schedule()} style={{color:'white'}} key={index}>
+                <tr scope="row" onClick={() => this.schedule()} style={{ color: 'white' }} key={index}>
                     <td>{shop.name}</td>
                     <td>{shop.distance}Mi.</td>
                 </tr>
             )
-            }
         })
+
         return (
             <React.Fragment>
                 <div ref={this.props.refProp} />
-                <h1 style={{color:'white'}} >Check shops</h1>
+                <h1 style={{ color: 'white' }} >Check shops</h1>
                 {/* <table style={{position:'center', margin:'auto'}}> */}
-                <table className="table table-dark table-lg" style={{fontSize: '20px'}}>
+                <table className="table table-dark table-lg" style={{ fontSize: '20px' }}>
                     <thead>
                         <tr>
                             <th scope="col" className="col-sm-11">Shops</th>

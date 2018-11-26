@@ -37,7 +37,8 @@ class App extends Component {
         <div className={styles.root}>
           <div>VIN: {this.state.vin}</div>
           <button onClick={this.handleClose}>Close</button>
-          <List/>
+          {/* <List/> */}
+          <Layout/>
           <ContentRouter />
         </div>
       </BrowserRouter>

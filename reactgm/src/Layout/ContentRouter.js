@@ -4,6 +4,7 @@ import Test from '../containers/Test';
 import Homepage from '../containers/Homepage';
 import List from '../containers/List';
 import Shops from '../containers/Shops';
+import Transaction from '../containers/Transaction';
 
 class ContentRouter extends React.Component {
     render(){
