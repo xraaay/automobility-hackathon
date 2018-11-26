@@ -61,7 +61,7 @@ class App extends Component {
         <div className={styles.root}>
           <div>VIN: {this.state.vin}</div>
           <button onClick={this.handleClose}>Close</button>
-          <button onClick={this.schedule}>Schedule</button>
+          {/* <button onClick={this.schedule}>Schedule</button> */}
           <Layout />
         </div>
       </BrowserRouter>
