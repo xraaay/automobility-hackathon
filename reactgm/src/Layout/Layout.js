@@ -58,13 +58,12 @@ class Layout extends React.Component {
 
     handleClose() {
         this.setState({ show: false });
+        if(val){
+            this.props.history.push("/list")
+        }
     }
 
     render() {
-        if (this.state.show == true) {
-            console.log('hello')
-        }
-
         return (
             <React.Fragment>
                 <button type="button" className="btn btn-secondary" onClick={() => this.closeApp()}>Back</button>

@@ -7,6 +7,7 @@ import Transaction from '../containers/Transaction';
 
 class ContentRouter extends React.Component {
     render(){
+        console.log("Switch")
         return (
             <React.Fragment>
                 <Switch>
