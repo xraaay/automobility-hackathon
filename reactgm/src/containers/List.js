@@ -6,6 +6,7 @@ import { Modal, Button } from 'react-bootstrap'
 const styles = {
     color: '#fff',
     backgroundColor: '#000',
+    padding: '10px 0'
 }
 class List extends React.Component {
 
@@ -18,8 +19,7 @@ class List extends React.Component {
         
         return (
             <React.Fragment>
-                {console.log(this.props.appointmentsReducer.appointmentTimes)}
-                <div style={styles} className='container'>
+                <div  className='container list'>
                     <ListGroup>
                         {apptList}
                     </ListGroup>

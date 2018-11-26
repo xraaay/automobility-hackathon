@@ -20,9 +20,9 @@ class Layout extends React.Component {
     render(){
         return (
             <React.Fragment>
-                <button type="button" onClick={e => {this.redirect(1)}}>Homepage</button>
+                {/* <button type="button" onClick={e => {this.redirect(1)}}>Homepage</button>
                 <button type="button" onClick={e => {this.redirect(2)}}>Test</button>
-                <button type="button" onClick={e => {this.redirect(3)}}>List</button>
+                <button type="button" onClick={e => {this.redirect(3)}}>List</button> */}
                 <ContentRouter />
             </React.Fragment>
         )

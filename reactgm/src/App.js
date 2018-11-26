@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-// import styles from "./App.module.css";
+import styles from "./App.module.css";
 import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import Layout from "./Layout/Layout";
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import globalStore from './reducers/index';
+import ContentRouter from './Layout/ContentRouter'
 
 
 const store = createStore(globalStore)
@@ -30,10 +31,10 @@ class App extends Component {
     return (
       <Provider store={store}>
       <BrowserRouter>
-        <div className='home'>
+        <div className={styles.root}>
           <div>VIN: {this.state.vin}</div>
           <button onClick={this.handleClose}>Close</button>
-          <Layout />
+          <ContentRouter />
         </div>
       </BrowserRouter>
       </Provider>

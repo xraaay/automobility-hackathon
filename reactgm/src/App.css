@@ -41,3 +41,9 @@ html #root{
   font-size: 2em;
   color: '#fff';
 }
+
+.list {
+  color: '#fff';
+  background-color: '#000';
+  overflow: auto;
+}
