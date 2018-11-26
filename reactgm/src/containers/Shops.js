@@ -79,13 +79,13 @@ class Shops extends React.Component {
         return (
             <React.Fragment>
                 <div ref={this.props.refProp} />
-                <h1 style={{ color: 'white' }} >Check shops</h1>
+                <h1 style={{ color: 'white' }} >Nearby Shops</h1>
                 {/* <table style={{position:'center', margin:'auto'}}> */}
                 <table className="table table-dark table-lg" style={{ fontSize: '20px' }}>
                     <thead>
                         <tr>
-                            <th scope="col" className="col-sm-11">Shops</th>
-                            <th scope="col" className="col-sm-1">Distance</th>
+                            <th scope="col" style={{ color: 'white' }} className="col-sm-11">Shops</th>
+                            <th scope="col" style={{ color: 'white' }} className="col-sm-1">Distance</th>
                         </tr>
                     </thead>
                     <tbody>
