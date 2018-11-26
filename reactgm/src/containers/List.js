@@ -15,7 +15,8 @@ class List extends React.Component {
     constructor(props){
         super(props)
         this.state ={
-            apptList: []
+            apptList: [],
+            icon:false
         }
     }
 
@@ -30,32 +31,44 @@ class List extends React.Component {
             apptList: apptList
         })
     }
+
+    closeApp = () => {
+        this.props.history.push("/")
+    }
+
+    schedule = () => {
+        this.setState({icon:true})
+        setTimeout(function(){
+            this.props.history.push("/")
+        }.bind(this),1200)
+    }
+
     render() {
         return (
             <React.Fragment>
                 <div  className='container-fluid'>
-                    <ListGroup>
+                    <ListGroup onClick={()=>this.setState({show:true})}>
                         {this.state.apptList}
                     </ListGroup>
                 </div>
-                <Modal show={this.state.show} onHide={this.handleClose} animation={false} style={{ top: "25%" }} backdropStyle={{ opacity: 0.5 }}>
+                <Modal show={this.state.show} onHide={this.handleClose} animation={false} style={{ top: "25%", color:'black' }} backdropStyle={{ opacity: 0.5 }}>
                     <Modal.Header>
                         <Modal.Title style={{ textAlign: "center" }}>
                             <div>
-                                <span className="glyphicon glyphicon-exclamation-sign" style={{ fontSize: "50px", color: "#F7CE3E" }} aria-hidden="true"></span>
-                                <h2>Confirm Appoitment?</h2>
+                                {this.state.icon?<span className="glyphicon glyphicon-check" style={{color:'#00e600', fontSize: "50px"}} aria-hidden="true"></span>
+                                :<span className="glyphicon glyphicon-exclamation-sign" style={{ fontSize: "50px", color: "#F7CE3E" }} aria-hidden="true"></span>}
+                                <h2 style={{ color: 'black' }}>Confirm Appoitment?</h2>
                             </div>
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-
                         <div className="container" style={{ fontWeight: "bold" }}>
                             <div className="row" style={{ color: "black" }}>
-                                <p>Confirm {this.state.odometer}</p>
-                                <p>Do Later</p>
+                                <p style={{ color: 'black' }}>Confirm {this.state.odometer}</p>
+                                <p style={{color:'black'}}>Do Later</p>
                                 <div>
-                                    <button type="button" className="btn btn-default" onClick={e => this.redirect(1)}>Schedule Now</button>
-                                    <button type="button" className="btn btn-default" onClick={e => this.handleClose(e)}>No, remind me later</button>
+                                    <button type="button" className="btn btn-default" onClick={e => this.schedule()}>Schedule Now</button>
+                                    <button type="button" className="btn btn-default" onClick={e => this.closeApp()}>No, Remind Me Later</button>
                                 </div>
                             </div>
                         </div>
