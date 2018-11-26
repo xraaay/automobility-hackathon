@@ -31,12 +31,14 @@
   }
 } */
 
-html #root{
-  background-color: '#000';
-  color: '#fff'
+html body {
+  background-image: url('./images/gFlsu7.jpg');
+  color: #fff !important;
+  font-size: 45px;
+
 }
 
-.home {
+/* .home {
   margin-top: 100px;
   font-size: 2em;
   color: '#fff';
@@ -52,4 +54,13 @@ html #root{
   font-size: '25px';
 }
 
+.modal-container {
+  position: relative;
+  background-color: '#000';
+}
+
+.modal-container .modal, .modal-container .modal-backdrop {
+  position: absolute;
+  background-color: '#000';
+} */
 /* 1280 x 660 */
