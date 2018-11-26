@@ -31,8 +31,8 @@ class Layout extends React.Component {
         }
     }
     closeApp = () => {
-        //gm.system.closeApp();
-        this.props.history.push("/")
+        gm.system.closeApp();
+        //this.props.history.push("/")
     };
 
     componentDidMount() {
@@ -78,16 +78,16 @@ class Layout extends React.Component {
                         <Modal.Title style={{ textAlign: "center" }}>
                             <div>
                                 <span className="glyphicon glyphicon-exclamation-sign" style={{ fontSize: "50px", color: "#F7CE3E" }} aria-hidden="true"></span>
-                                <h2>Car needs service</h2>
+                                <h2 style={{color:'#000000'}}>Car needs service</h2>
                             </div>
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
 
                         <div className="container" style={{ fontWeight: "bold" }}>
-                            <div className="row" style={{ color: "black" }}>
-                                <p>Your mileage has reached {this.state.odometer}</p>
-                                <p>Would you like to schedule an appointment?</p>
+                            <div className="row" style={{ color: "#000000" }}>
+                                <p style={{ color: "#000000" }}>Your mileage has reached {this.state.odometer}</p>
+                                <p style={{ color: "#000000" }}>Would you like to schedule an appointment?</p>
                                 <div>
                                     <button type="button" className="btn btn-default" onClick={e => this.redirect(1)}>Schedule Now</button>
                                     <button type="button" className="btn btn-default" onClick={e => this.handleClose(e)}>No, remind me later</button>

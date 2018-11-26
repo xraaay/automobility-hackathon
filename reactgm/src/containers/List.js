@@ -24,7 +24,7 @@ class List extends React.Component {
         const apptArr = this.props.appointmentsReducer.appointmentTimes;
         const apptList = []
         apptArr.forEach( item => {
-            let date = moment(item).format('MMMM Do YYYY, h:mm:ss a')
+            let date = moment(item).format('MMMM Do YYYY, h:mm:ss p')
             apptList.push(<ListGroupItem style={styles}>{date}</ListGroupItem>)
         })
         this.setState({
