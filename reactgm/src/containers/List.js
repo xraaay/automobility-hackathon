@@ -57,7 +57,7 @@ class List extends React.Component {
                             <div>
                                 {this.state.icon?<span className="glyphicon glyphicon-check" style={{color:'#00e600', fontSize: "50px"}} aria-hidden="true"></span>
                                 :<span className="glyphicon glyphicon-exclamation-sign" style={{ fontSize: "50px", color: "#F7CE3E" }} aria-hidden="true"></span>}
-                                <h2 style={{ color: 'black' }}>Confirm Appoitment?</h2>
+                                <h2 style={{ color: 'black' }}>Confirm Appointment?</h2>
                             </div>
                         </Modal.Title>
                     </Modal.Header>
