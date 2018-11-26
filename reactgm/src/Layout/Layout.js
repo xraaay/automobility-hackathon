@@ -25,14 +25,13 @@ class Layout extends React.Component {
                 break;
             case 3:
                 this.props.history.push("/transaction")
-                break;
             default:
                 break;
         }
     }
     closeApp = () => {
-        // gm.system.closeApp();
-        this.props.history.push("/")
+        gm.system.closeApp();
+       // this.props.history.push("/")
       };
 
     componentDidMount() {
@@ -68,11 +67,9 @@ class Layout extends React.Component {
         return (
             <React.Fragment>
                 <button type="button" className="btn btn-secondary" onClick={()=>this.closeApp()}>Back</button>
-                <button type="button" className="btn btn-secondary text-right" onClick={e => {this.redirect(1)}}>Shops</button>
-                <button type="button" className="btn btn-secondary" onClick={e => { this.redirect(2)}}>List</button>
-                <button type="button" className="btn btn-secondary" onClick={e => {this.redirect(3)}}>Transactions</button>
-
-                <ContentRouter />
+                <button type="button" className="btn btn-secondary" onClick={e => this.redirect(1)}>Shops</button>
+                <button type="button" className="btn btn-secondary" onClick={e => this.redirect(2)}>List</button>
+                <button type="button" className="btn btn-secondary" onClick={e =>this.redirect(3)}>Transactions</button>
 
                 <Modal show={this.state.show} onHide={this.handleClose} animation={false} style={{ top: "25%" }} backdropStyle={{ opacity: 0.5 }}>
                     <Modal.Header>
@@ -90,14 +87,14 @@ class Layout extends React.Component {
                                 <p>Your mileage has reached {this.state.odometer}</p>
                                 <p>Would you like to schedule an appointment?</p>
                                 <div>
-                                    <button type="button" className="btn btn-default" onClick={e => this.handleClose(e)}>Schedule Now</button>
+                                    <button type="button" className="btn btn-default" onClick={e => this.redirect(1).then(()=>this.handleClose())}>Schedule Now</button>
                                     <button type="button" className="btn btn-default" onClick={e => this.handleClose(e)}>No, remind me later</button>
                                 </div>
                             </div>
                         </div>
                     </Modal.Body>
                 </Modal>
-
+                {/* <ContentRouter /> */}
             </React.Fragment>
         )
     }
