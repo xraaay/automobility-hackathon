@@ -1,5 +1,4 @@
 import React from 'react'
-import swal from 'sweetalert2'
 import { connect } from 'react-redux'
 import { selectShop } from '../actions'
 import { withRouter } from 'react-router-dom'
@@ -14,43 +13,6 @@ class Shops extends React.Component {
             shopList: []
         }
     }
-
-    // schedule = () => {
-    //     const swalWithBootstrapButtons = swal.mixin({
-    //         confirmButtonClass: 'btn btn-success',
-    //         cancelButtonClass: 'btn btn-danger',
-    //         buttonsStyling: false,
-    //     })
-
-    //     swalWithBootstrapButtons({
-    //         title: this.state.shopList.shops[0].shopName,
-    //         text: this.state.shopList.shops[0].address,
-    //         type: 'warning',
-    //         showCancelButton: true,
-    //         confirmButtonText: 'Yes, schedule appointment',
-    //         cancelButtonText: 'No, schedule later',
-    //         reverseButtons: true
-    //     }).then((result) => {
-    //       if (result.value) {
-    //         this.props.selectedShop(this.state.shopList.shops[0])
-    //         console.log(this.state.shopList.shops[0])
-    //         swalWithBootstrapButtons(
-    //           'Scheduled!',
-    //           `Your next appointment date is on ${this.props.appointmentsReducer.appointmentTimes[0]}`,
-    //           'Success'
-    //         )
-    //       } else if (
-    //         // Read more about handling dismissals
-    //         result.dismiss === swal.DismissReason.cancel
-    //       ) {
-    //         swalWithBootstrapButtons(
-    //           'Cancelled',
-    //           'Drive safe',
-    //           'Error'
-    //         )
-    //       }
-    //     })
-    // }
 
     selectShop(shop){
         this.props.selectedShop(this.state.shopList.shops[0])
@@ -77,6 +39,7 @@ class Shops extends React.Component {
 
         return (
             <React.Fragment>
+                <div>
                 <div ref={this.props.refProp} />
                 <h1 style={{ color: 'white' }} >Nearby Shops</h1>
                 {/* <table style={{position:'center', margin:'auto'}}> */}
@@ -91,6 +54,7 @@ class Shops extends React.Component {
                         {listShops}
                     </tbody>
                 </table>
+                </div>
             </React.Fragment>
         )
     }
