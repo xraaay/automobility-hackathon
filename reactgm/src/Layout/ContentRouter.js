@@ -10,7 +10,7 @@ class ContentRouter extends React.Component {
             <React.Fragment>
                 <Switch>
                     <Route exact path="/" component={Homepage} />
-                    <Route path="/test" component={Test} />
+                    {/* <Route path="/test" component={Test} /> */}
                     <Route path="/shops" component={Shops} />
                 </Switch>
             </React.Fragment>
