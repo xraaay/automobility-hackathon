@@ -34,13 +34,19 @@ const appointmentsReducer = {
         ],
         vehicalData:[
             {
-                vin: "1FTRW08L83KA45961"
+                vin: "1GKS1BKC5FR564261"
                 ,aaia: "12110"
-                ,make: "FORD"
-                ,year: 2003
-                ,model: "F150"
-                ,engine: "V8, 5.4L; SOHC; 16V"
-                ,engineType: "V8, 5.4L; SOHC; 16V"
+                ,make: "GMC"
+                ,year: 2015
+                ,model: "YUKON"
+                ,engine: "5.3L V8 16 Valve Flex-fuel (FFV) L83"
+                ,engineType: "5.3L V8 16 Valve Flex-fuel (FFV) L83"
+                ,recall:{
+                    number:"14V374000"
+                    ,startDate:'06/27/2014'
+                    ,reason:"an electrical signal short may cause the transfer case to shift to neutral without the driver's input"
+                    ,consequence:"If the transfer case switches to neutral while the vehicle is parked and the parking brake is not in use, the vehicle may roll away increasing the risk of injury to bystanders."
+                }
             },
             {
                 vin: "1FTRW08L83KA45962"
@@ -50,15 +56,27 @@ const appointmentsReducer = {
                 ,model: "M3"
                 ,engine: "V6, 3.0L; V6"
                 ,engineType: "V6, 3.0L; V6"
+                ,recall:{
+                    number:"14V374000"
+                    ,startDate:'06/27/2014'
+                    ,reason:"an electrical signal short may cause the transfer case to shift to neutral without the driver's input"
+                    ,consequence:"If the transfer case switches to neutral while the vehicle is parked and the parking brake is not in use, the vehicle may roll away increasing the risk of injury to bystanders."
+                }
             },
             {
-                vin: "1FTRW08L83KA45963"
+                vin: "1GC2KVEG6FZ106009"
                 ,aaia: "12113"
                 ,make: "CHEVY"
-                ,year: 2016
+                ,year: 2015
                 ,model: "SILVERADO"
-                ,engine: "V8, 5.4L; 16V"
-                ,engineType: "V8, 5.4L; 16V"
+                ,engine: "6.0 Engine FFV (L96)"
+                ,engineType: "6.0L 8cyl 6A"
+                ,recall:{
+                    number:"16V209000"
+                    ,startDate:'07/23/2014'
+                    ,reason:"Due to an incomplete weld on the seat hook bracket assembly, the front seats in the affected vehicles may not stay secured in place during a high load condition such as a crash."
+                    ,consequence:"A seat that does not stay secured increases the risk of occupant injury in a vehicle crash."
+                }
             },
             {
                 vin: "1FTRW08L83KA45964"
@@ -68,6 +86,12 @@ const appointmentsReducer = {
                 ,model: "300"
                 ,engine: "V6, 3.6L; 6V"
                 ,engineType: "V6, 3.6L; 6V"
+                ,recall:{
+                    number:"14V374000"
+                    ,startDate:'06/27/2014'
+                    ,reason:"an electrical signal short may cause the transfer case to shift to neutral without the driver's input"
+                    ,consequence:"If the transfer case switches to neutral while the vehicle is parked and the parking brake is not in use, the vehicle may roll away increasing the risk of injury to bystanders."
+                }
             }
         ],
         users:[

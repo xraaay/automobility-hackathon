@@ -31,8 +31,13 @@ class Layout extends React.Component {
                 break;
             case 3:
                 this.props.history.push("/transaction")
-            // default:
                 break;
+            case 4:
+                this.props.history.push("/check-in")
+                break;
+            default:
+                break;
+
         }
     }
     closeApp = () => {
