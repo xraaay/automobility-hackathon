@@ -3,6 +3,12 @@ import styles from "./App.module.css";
 import swal from 'sweetalert2' 
 import { BrowserRouter } from "react-router-dom";
 import Layout from "./Layout/Layout";
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import globalStore from './reducers/index';
+
+
+const store = createStore(globalStore)
 
 const gm = window.gm;
 
@@ -57,7 +63,8 @@ class App extends Component {
 
   render() {
     return (
-          <BrowserRouter>
+      <Provider store={store}>
+      <BrowserRouter>
         <div className={styles.root}>
           <div>VIN: {this.state.vin}</div>
           <button onClick={this.handleClose}>Close</button>
@@ -65,6 +72,7 @@ class App extends Component {
           <Layout />
         </div>
       </BrowserRouter>
+      </Provider>
     );
   }
 }
