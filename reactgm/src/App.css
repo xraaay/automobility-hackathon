@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -29,4 +29,66 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+html body {
+  background-image: url('./images/gFlsu7.jpg');
+  color: #fff !important;
+  font-size: 45px;
+
 }
+
+.button_div {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.button {
+  background-color: #0f3796;
+  padding: 0 70px;
+  height: 60px;
+  margin: 0 11px;
+  font-size: 35px;
+  align-content: center;
+  box-shadow: 2px 13px 9px 5px rgba(38, 38, 38, 0.71);
+}
+
+.button:hover{
+  color: #fff;
+}
+.button:focus{
+  color: #fff;
+}
+/* .home {
+  margin-top: 100px;
+  font-size: 2em;
+  color: '#fff';
+}
+
+body {
+  background-color: black;
+}
+
+p, h6, h5, h4, h3, h2, h1 {
+  color: white;
+}
+.list {
+  color: '#fff';
+  background-color: '#000';
+  overflow: auto;
+  width: 1265px;
+  height: 660px;
+  padding-top: '15px';
+  font-size: '25px';
+}
+
+.modal-container {
+  position: relative;
+  background-color: '#000';
+}
+
+.modal-container .modal, .modal-container .modal-backdrop {
+  position: absolute;
+  background-color: '#000';
+} */
+/* 1280 x 660 */
