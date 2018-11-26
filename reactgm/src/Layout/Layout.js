@@ -11,6 +11,11 @@ class Layout extends React.Component {
             case 2:
                 this.props.history.push("/test")
                 break;
+            case 3:
+                this.props.history.push("/transaction")
+                break;
+            default:
+                break;
         }
     }
 
@@ -19,6 +24,7 @@ class Layout extends React.Component {
             <React.Fragment>
                 <button type="button" onClick={e => {this.redirect(1)}}>Homepage</button>
                 <button type="button" onClick={e => {this.redirect(2)}}>Test</button>
+                <button type="button" onClick={e => {this.redirect(3)}}>Transactions</button>
                 <ContentRouter />
             </React.Fragment>
         )
