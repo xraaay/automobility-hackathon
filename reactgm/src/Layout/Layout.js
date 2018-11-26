@@ -12,7 +12,8 @@ class Layout extends React.Component {
         this.state = {
             odometer: null, 
             show: null,
-            isCarMoving: false
+            isCarMoving: false,
+            alert:true
         }
         this.handleClose = this.handleClose.bind(this); 
         this.carMotionCheck = this.carMotionCheck.bind(this);
@@ -36,11 +37,17 @@ class Layout extends React.Component {
                 this.props.history.push("/recalls")
                 this.setState({ show: false })
                 break;
+            case 4:
+                this.props.history.push("/check-in")
+                break;
+            default:
+                break;
+
         }
     }
     closeApp = () => {
-        //gm.system.closeApp();
-        this.props.history.push("/")
+        gm.system.closeApp();
+        //this.props.history.push("/")
     };
 
     componentDidMount() {
@@ -67,23 +74,28 @@ class Layout extends React.Component {
     handleClose(val) {
         this.setState({ show: false });
         if(val){
-            this.props.history.push("/shops")
+            this.props.history.push("/")
         }
     }
 
     handleCloseModal (closeModal) {
         console.log(closeModal + ' parent close')
-        this.setState({ isCarMoving: closeModal })
+        this.setState({ isCarMoving: closeModal,alert:closeModal })
     }
 
     carMotionCheck() {
         const speed = gm.system.getSpeed();
 
         if (speed === 0) {
-            this.setState({ isCarMoving: false })
+            this.setState({ isCarMoving: false,alert: true })
+            this.props.history.push('/shops')
+            this.handleClose()    
         }
         else {
-            this.setState({ isCarMoving: true })
+            this.setState({
+                isCarMoving: true,
+                alert: false
+            })
             console.log("yes it's in the parent")
             this.handleClose();
         }
