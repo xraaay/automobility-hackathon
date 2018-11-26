@@ -23,14 +23,18 @@ class Layout extends React.Component {
         switch (val) {
             case 1:
                 this.props.history.push("/shops")
-                this.setState({show:false})
+                this.setState({ show: false })
                 break;
             case 2:
                 this.props.history.push("/list")
                 break;
             case 3:
                 this.props.history.push("/transaction")
-            // default:
+                // default:
+                break;
+            case 4:
+                this.props.history.push("/recalls")
+                this.setState({ show: false })
                 break;
         }
     }
@@ -93,6 +97,7 @@ class Layout extends React.Component {
                 <button type="button" className="btn button" onClick={e => this.redirect(1)}>Shops</button>
                 <button type="button" className="btn button" onClick={e => this.redirect(2)}>Appointments</button>
                 <button type="button" className="btn button" onClick={e => this.redirect(3)}>Wallet</button>
+                <button type="button" className="btn button" onClick={e => this.redirect(4)}>Recalls</button>
                 </div>
 
                 <ContentRouter />

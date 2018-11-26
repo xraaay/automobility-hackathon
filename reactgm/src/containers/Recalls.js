@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-class Shops extends React.Component {
+class Recalls extends React.Component {
 
     constructor(props) {
         super(props);
@@ -33,13 +33,13 @@ class Shops extends React.Component {
             <React.Fragment>
                 <div>
                 <div ref={this.props.refProp} />
-                <h1 style={{ color: 'white' }} >Nearby Shops</h1>
+                <h1 style={{ color: 'white' }} >Recalls</h1>
                 {/* <table style={{position:'center', margin:'auto'}}> */}
                 <table className="table table-dark table-lg" style={{ fontSize: '20px' }}>
                     <thead>
                         <tr>
-                            <th scope="col" style={{ color: 'white' }} className="col-sm-11">Shops</th>
-                            <th scope="col" style={{ color: 'white' }} className="col-sm-1">Distance</th>
+                            <th scope="col" style={{ color: 'white' }} className="col-sm-11">Recall No.</th>
+                            <th scope="col" style={{ color: 'white' }} className="col-sm-1">Recall Date</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -56,4 +56,4 @@ const mapStateToProps = state => ({
     appointmentsReducer: state.appointmentsReducer
 })
 
-export default connect(mapStateToProps)(Shops)
+export default connect(mapStateToProps)(Recalls)
