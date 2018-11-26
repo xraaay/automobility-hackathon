@@ -1,7 +1,6 @@
 import React from 'react'
 import swal from 'sweetalert2'
 import { connect } from 'react-redux'
-import { Modal } from 'react-bootstrap'
 // import map from '../image.png';
 
 class Shops extends React.Component {
@@ -14,15 +13,6 @@ class Shops extends React.Component {
         }
     }
 
-    scrollToContent(content) {
-        switch (content) {
-            case 1:
-                this.section1.current.scrollIntoView({ behavior: 'smooth' });
-                break;
-            case 2:
-                this.section2.current.scrollIntoView({ behavior: 'smooth' });
-        }
-    }
     schedule = () => {
         const swalWithBootstrapButtons = swal.mixin({
             confirmButtonClass: 'btn btn-success',
