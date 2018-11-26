@@ -1,5 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { selectShop } from '../actions'
+import { withRouter } from 'react-router-dom'
+// import map from '../image.png';
 
 class Shops extends React.Component {
 
@@ -9,6 +12,11 @@ class Shops extends React.Component {
         this.state = {
             shopList: []
         }
+    }
+
+    selectShop(shop){
+        this.props.selectedShop(this.state.shopList.shops[0])
+        this.props.history.push("/list")
     }
 
     componentDidMount() {
@@ -22,7 +30,7 @@ class Shops extends React.Component {
     render() {
         const listShops = this.props.appointmentsReducer.shops.map((shop, index) => {
             return (
-                <tr scope="row" onClick={() => this.props.history.push('/list')} style={{ color: 'white' }} key={index}>
+                <tr scope="row" onClick={() => {this.selectShop(shop)}} style={{ color: 'white' }} key={index}>
                     <td>{shop.name}</td>
                     <td>{shop.distance}Mi.</td>
                 </tr>
@@ -56,4 +64,8 @@ const mapStateToProps = state => ({
     appointmentsReducer: state.appointmentsReducer
 })
 
-export default connect(mapStateToProps)(Shops)
+const mapDispatchToProps = dispatch => ({
+    selectedShop: shop => dispatch(selectShop(shop))
+})
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Shops))
