@@ -85,8 +85,7 @@ class Shops extends React.Component {
         return (
             <React.Fragment>
                 <div ref={this.props.refProp} />
-                <h1>check shops</h1>
-                {/* <button type="button" onClick={() => this.props.history.push("/")}>Homepage</button> */}
+                <h1 style={{color:'black'}} >check shops</h1>
                 <table style={{position:'center', margin:'auto'}}>
                     <thead>
                         <tr>
@@ -103,23 +102,6 @@ class Shops extends React.Component {
                     </thead>
                     <tbody>{listShops}</tbody>
                 </table>
-
-                <Modal show={this.state.show} onHide={this.handleClose} animation={false} style={{ top: "25%" }} backdropStyle={{ opacity: 0.5 }}>
-                    <Modal.Body>
-                        <div className="container">
-                            <div className="row" style={{ color: "black" }}>
-                                <i class="fa fa-car"></i>
-                                <h2>Schedule Appointment</h2>
-                                <p></p>
-                                <p>Would you like to schedule an appointment?</p>
-                                <button type="button" onClick={e => this.handleClose(e)}>Schedule Now</button>
-                                <button type="button" onClick={e => this.handleClose(e)}>No, remind me later</button>
-                            </div>
-                        </div>
-                        <button type="button" onClick={e => this.handleClose(e)}>Test</button>
-
-                    </Modal.Body>
-                </Modal>
             </React.Fragment>
         )
     }
