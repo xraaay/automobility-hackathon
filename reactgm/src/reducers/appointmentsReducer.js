@@ -1,4 +1,4 @@
-const initialState = {
+const appointmentsReducer = {
         appointmentTimes: [
             new Date('2018-11-27T08:00:00')
             ,new Date('2018-11-27T09:00:00')

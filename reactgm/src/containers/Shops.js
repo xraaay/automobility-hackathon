@@ -40,7 +40,7 @@ class Shops extends React.Component {
           if (result.value) {
             swalWithBootstrapButtons(
               'Scheduled!',
-              `your next appointment date is on ${this.state.shopList.appoitnemtTimes}`,
+              `your next appointment date is on xx-xx-xxxx`,
               'success'
             )
           } else if (
