@@ -39,22 +39,22 @@ class Shops extends React.Component {
             cancelButtonText: 'No, schedule later',
             reverseButtons: true
         }).then((result) => {
-            if (result.value) {
-                swalWithBootstrapButtons(
-                    'Scheduled!',
-                    `your next appointment date is on ${this.props.appointmentsReducer.appointmentTimes[0]}`,
-                    'success'
-                )
-            } else if (
-                // Read more about handling dismissals
-                result.dismiss === swal.DismissReason.cancel
-            ) {
-                swalWithBootstrapButtons(
-                    'Cancelled',
-                    'drive safe',
-                    'error'
-                )
-            }
+          if (result.value) {
+            swalWithBootstrapButtons(
+              'Scheduled!',
+              `Your next appointment date is on ${this.props.appointmentsReducer.appointmentTimes[0]}`,
+              'Success'
+            )
+          } else if (
+            // Read more about handling dismissals
+            result.dismiss === swal.DismissReason.cancel
+          ) {
+            swalWithBootstrapButtons(
+              'Cancelled',
+              'Drive safe',
+              'Error'
+            )
+          }
         })
     }
 

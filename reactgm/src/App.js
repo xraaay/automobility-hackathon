@@ -30,8 +30,6 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-      {/* <button type="button" style={{position:'absolute', top: 100,left: 0}} onClick={this.handleClose}>Back</button> */}
       <Provider store={store}>
       <BrowserRouter>
         <div className={styles.root}>
@@ -43,7 +41,6 @@ class App extends Component {
         </div>
       </BrowserRouter>
       </Provider>
-      </div>
     );
   }
 }
