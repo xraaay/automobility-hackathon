@@ -13,6 +13,23 @@ class App extends Component {
   componentDidMount() {
     const vin = gm.info.getVIN();
     this.setState({ vin });
+    ngi.modal.load({
+      title: 'Mistakes Were Made',
+      body: 'An error has occurred, please try again later!',
+      timeout: -1,
+      actions: [
+        {
+          label: 'Retry',
+          action: function() { }
+        },
+        {
+          label: 'Cancel',
+          action: function() { }
+        }
+      ]
+    }).then(function() {
+      console.log('Modal dismissed!');
+    });
   }
 
   handleClose = () => {
