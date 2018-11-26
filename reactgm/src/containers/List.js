@@ -24,7 +24,7 @@ class List extends React.Component {
         const apptArr = this.props.appointmentsReducer.appointmentTimes;
         const apptList = []
         apptArr.forEach( item => {
-            let date = moment(item).format('MMMM Do YYYY, h:mm:ss a')
+            let date = moment(item).format('MMMM Do YYYY, h:mm:ss p')
             apptList.push(<ListGroupItem style={styles}>{date}</ListGroupItem>)
         })
         this.setState({
@@ -57,18 +57,16 @@ class List extends React.Component {
                             <div>
                                 {this.state.icon?<span className="glyphicon glyphicon-check" style={{color:'#00e600', fontSize: "50px"}} aria-hidden="true"></span>
                                 :<span className="glyphicon glyphicon-exclamation-sign" style={{ fontSize: "50px", color: "#F7CE3E" }} aria-hidden="true"></span>}
-                                <h2 style={{ color: 'black' }}>Confirm Appoitment?</h2>
+                                <h2 style={{ color: 'black' }}>Confirm Appointment?</h2>
                             </div>
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <div className="container" style={{ fontWeight: "bold" }}>
-                            <div className="row" style={{ color: "black" }}>
-                                <p style={{ color: 'black' }}>Confirm {this.state.odometer}</p>
-                                <p style={{color:'black'}}>Do Later</p>
+                        <div className="container" style={{ fontWeight: "bold",fontSize:'30px'}}>
+                            <div className="row" style={{ color: "black", alignContent:'center', align:'center' }}>
+                                    <button style={{ color: "black", alignContent:'center', align:'center' }} type="button" className="btn btn-default" onClick={e => this.schedule()}>Schedule Now</button>
+                                    <button style={{ color: "black", alignContent:'center', align:'center' }} type="button" className="btn btn-default" onClick={() => this.setState({show:false})}>No, Remind Me Later</button>
                                 <div>
-                                    <button type="button" className="btn btn-default" onClick={e => this.schedule()}>Schedule Now</button>
-                                    <button type="button" className="btn btn-default" onClick={e => this.closeApp()}>No, Remind Me Later</button>
                                 </div>
                             </div>
                         </div>
