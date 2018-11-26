@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styles from "./App.module.css";
+// import styles from "./App.module.css";
 import "./App.css";
 import swal from 'sweetalert2' 
 import { BrowserRouter } from "react-router-dom";
@@ -9,19 +9,32 @@ import { createStore } from 'redux';
 import globalStore from './reducers/index';
 import ContentRouter from './Layout/ContentRouter'
 import List from './containers/List';
+import Transaction from './containers/Transaction';
 
 
 const store = createStore(globalStore)
 
 const gm = window.gm;
+
+const onSuccess = (data) => {
+  console.log('DATA TESTING ' + data.change_oil_ind)
+}
+
+const onFailure = () => {
+  console.log('faileddddd')
+}
+
 class App extends Component {
   state = {
-    vin: "pending..."
+    vin: "pending...",
+    vehicle: {}
   };
 
   componentDidMount() {
     const vin = gm.info.getVIN();
     this.setState({ vin });
+    const vehicleData = gm.info.getVehicleData(onSuccess, onFailure, ["change_oil_ind"])
+    this.setState({ vehicle: vehicleData })
   }
 
   handleClose = () => {
@@ -30,19 +43,14 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-      {/* <button type="button" style={{position:'absolute', top: 100,left: 0}} onClick={this.handleClose}>Back</button> */}
       <Provider store={store}>
       <BrowserRouter>
-        <div className={styles.root}>
-          <div>VIN: {this.state.vin}</div>
-          <button onClick={this.handleClose}>Close</button>
-          <List/>
-          <ContentRouter />
+        <div>
+          {/* <button onClick={this.handleClose}>Close</button> */}
+          <Layout/>
         </div>
       </BrowserRouter>
       </Provider>
-      </div>
     );
   }
 }
