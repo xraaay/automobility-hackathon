@@ -31,7 +31,7 @@ class App extends Component {
       {/* <button type="button" style={{position:'absolute', top: 100,left: 0}} onClick={this.handleClose}>Back</button> */}
       <Provider store={store}>
       <BrowserRouter>
-        <div className={styles.root} style={{backgroundColor:''}}>
+        <div className={styles.root} style={{backgroundColor:'#000033'}}>
           {/* <div>VIN: {this.state.vin}</div> */}
           {/* <button onClick={this.schedule}>Schedule</button> */}
           <Layout />

@@ -66,9 +66,8 @@ class Layout extends React.Component {
             <React.Fragment>
                 {/* <button type="button" onClick={e => {this.redirect(1)}}>Homepage</button> */}
                 {/* <button type="button" onClick={e => {this.redirect(2)}}>Test</button> */}
-                <button type="button"  onClick={()=>this.closeApp()}>Back</button>
-                <button type="button" onClick={e => {this.redirect(3)}}>Shops</button>
-
+                <button type="button" style={{color:'#000033'}} onClick={()=>this.closeApp()}>Back</button>
+                <button type="button" style={{float:'right', color:'#000033'}} onClick={e => {this.redirect(3)}}>Shops</button>
                 <ContentRouter />
 
                 <Modal show={this.state.show} onHide={this.handleClose} animation={false} style={{ top: "25%" }} backdropStyle={{ opacity: 0.5 }}>
@@ -81,7 +80,6 @@ class Layout extends React.Component {
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-
 
                         <div className="container" style={{ fontWeight: "bold" }}>
                             <div className="row" style={{ color: "black" }}>

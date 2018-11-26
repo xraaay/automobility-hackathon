@@ -12,8 +12,8 @@ class Shops extends React.Component {
         this.state = {
             shopList: []
         }
-
     }
+
     scrollToContent(content) {
         switch (content) {
             case 1:
@@ -68,26 +68,36 @@ class Shops extends React.Component {
 
     render() {
         const listShops = this.props.appointmentsReducer.shops.map((shop, index) => {
-            debugger
+            if (index === 0) {
+                return (
+                        <tr onClick={() => this.schedule()} style={{ fontSize: '45px', color: 'white', borderBlockStartColor: 'white', backgroundColor: "gray" }} key={index}>
+                            <td>{shop.name}</td>
+                            <td><span>&nbsp;&nbsp;</span></td>
+                            <td>{shop.distance}Mi.</td>
+                            <span className="glyphicon glyphicon-star-empty"></span>
+                        </tr>
+                )
+            } else {
             return (
-                <tr onClick={() => this.schedule()} style={{ color: 'black' }} key={index}>
+                <tr onClick={() => this.schedule()} style={{fontSize:'45px', color: 'white', backgroundColor:"gray"}} key={index}>
                     <td>{shop.name}</td>
                     <td><span>&nbsp;&nbsp;</span></td>
                     <td>{shop.distance}Mi.</td>
                 </tr>
             )
+            }
         })
         return (
             <React.Fragment>
-                <div ref={this.props.refProp} />
-                <h1 style={{ color: 'black'  }} >check shops</h1>
+                <div style={{backgroundColor:'black'}}/>
+                <h1 style={{ color: 'white', margin:'auto',align:'center',textAlign:'center',alignSelf: 'center'}} >check shops</h1>
                 <div className="container-fluid">
                     <div className="row">
-                        <div className="col-sm-6">
+                        <div className="col-sm-6 offset-2">
                             <table>
                                 <thead>
-                                    <tr style={{ color: 'black' }}>
-                                        <th>Shops</th>
+                                    <tr style={{ color: 'white', margin:'auto',align:'center',textAlign:'center',alignSelf: 'center'}}>
+                                        <th style={{ color: 'white', margin:'auto',align:'center',textAlign:'center',alignSelf: 'center'}}>Shops</th>
                                         <th><span>&nbsp;&nbsp;</span></th>
                                         <th>Distance</th>
                                     </tr>
