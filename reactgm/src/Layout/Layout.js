@@ -110,7 +110,7 @@ class Layout extends React.Component {
                 <button type="button" className="btn button" onClick={e => this.redirect(2)}>Appointments</button>
                 <button type="button" className="btn button" onClick={e => this.redirect(3)}>Wallet</button>
                 <button type="button" className="btn button" onClick={e => this.redirect(4)}>Recalls</button>
-                {this.state.alert? '':<button type="button" style={{float:'right'}} className="btn button btn-danger" onClick={()=>this.setState({show:true})}>Alert</button>}
+                {this.state.alert? '':<button type="button" style={{float:'right'}} className="btn btn-danger" onClick={()=>this.setState({show:true})}>Alert</button>}
 
                 <ContentRouter />
                 <SpeedCheckModal speedCheck = {this.state.isCarMoving} handleCloseModal = {this.handleCloseModal}/>
