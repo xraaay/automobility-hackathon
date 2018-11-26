@@ -30,19 +30,15 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-      {/* <button type="button" style={{position:'absolute', top: 100,left: 0}} onClick={this.handleClose}>Back</button> */}
       <Provider store={store}>
       <BrowserRouter>
         <div className={styles.root}>
           <div>VIN: {this.state.vin}</div>
           <button onClick={this.handleClose}>Close</button>
-          <List/>
-          <Layout/>
+          <Layout />
         </div>
       </BrowserRouter>
       </Provider>
-      </div>
     );
   }
 }

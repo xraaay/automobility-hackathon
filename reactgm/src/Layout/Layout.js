@@ -18,16 +18,15 @@ class Layout extends React.Component {
     redirect = val => {
         switch (val) {
             case 1:
-                this.props.history.push("/")
+                this.props.history.push("/shops")
                 break;
             case 2:
-                this.props.history.push("/test")
-                break;
-            case 3:
                 this.props.history.push("/list")
                 break;
-            case 4:
-                this.props.history.push("/shops")
+            case 3:
+                this.props.history.push("/transaction")
+                break;
+            default:
                 break;
             case 5:
                 this.props.history.push("/check-in")
@@ -36,7 +35,8 @@ class Layout extends React.Component {
         }
     }
     closeApp = () => {
-        gm.system.closeApp();
+        // gm.system.closeApp();
+        this.props.history.push("/")
       };
 
     componentDidMount() {
@@ -71,11 +71,10 @@ class Layout extends React.Component {
 
         return (
             <React.Fragment>
-                {/* <button type="button" onClick={e => {this.redirect(1)}}>Homepage</button>
-                <button type="button" onClick={e => {this.redirect(2)}}>Test</button> */}
-                <button type="button"  onClick={()=>this.closeApp()}>Back</button>
-                <button type="button" onClick={e => {this.redirect(4)}}>Shops</button>
-                <button type="button" onClick={e => {this.redirect(5)}}>Check In</button>
+                <button type="button" className="btn btn-secondary" onClick={()=>this.closeApp()}>Back</button>
+                <button type="button" className="btn btn-secondary text-right" onClick={e => {this.redirect(1)}}>Shops</button>
+                <button type="button" className="btn btn-secondary" onClick={e => { this.redirect(2)}}>List</button>
+                <button type="button" className="btn btn-secondary" onClick={e => {this.redirect(3)}}>Transactions</button>
 
                 <ContentRouter />
 

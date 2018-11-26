@@ -5,19 +5,16 @@ import Homepage from '../containers/Homepage';
 import CheckIn from '../containers/CheckIn';
 import List from '../containers/List';
 import Shops from '../containers/Shops';
-
+import Transaction from '../containers/Transaction'
 class ContentRouter extends React.Component {
     render(){
         return (
             <React.Fragment>
                 <Switch>
                     <Route component={Homepage} />
-                    <Route path="/test" component={Test} />
-                    <Route path="/check-in" component={CheckIn}/>
                     <Route path="/list" component={List} />
-                    {/* <Route exact path="/" component={Homepage} /> */}
-                    {/* <Route path="/test" component={Test} /> */}
                     <Route path="/shops" component={Shops} />
+                    <Route path="/transaction" component={Transaction} />
                 </Switch>
             </React.Fragment>
         )

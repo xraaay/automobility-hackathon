@@ -67,17 +67,9 @@ class Shops extends React.Component {
 
     render() {
         const listShops = this.props.appointmentsReducer.shops.map((shop,index) => {
-            debugger
             return (
-                <tr onClick={()=>this.schedule()} style={{color:'black'}} key={index}>
+                <tr scope="row" onClick={()=>this.schedule()} style={{color:'white'}} key={index}>
                     <td>{shop.name}</td>
-                    <td><span>&nbsp;&nbsp;</span></td>
-                    <td><span>&nbsp;&nbsp;</span></td>
-                    <td><span>&nbsp;&nbsp;</span></td>
-                    <td><span>&nbsp;&nbsp;</span></td>
-                    <td><span>&nbsp;&nbsp;</span></td>
-                    <td><span>&nbsp;&nbsp;</span></td>
-                    <td><span>&nbsp;&nbsp;</span></td>
                     <td>{shop.distance}Mi.</td>
                 </tr>
             )
@@ -85,22 +77,18 @@ class Shops extends React.Component {
         return (
             <React.Fragment>
                 <div ref={this.props.refProp} />
-                <h1 style={{color:'black'}} >check shops</h1>
-                <table style={{position:'center', margin:'auto'}}>
+                <h1 style={{color:'white'}} >Check shops</h1>
+                {/* <table style={{position:'center', margin:'auto'}}> */}
+                <table className="table table-dark table-lg" style={{fontSize: '20px'}}>
                     <thead>
                         <tr>
-                            <th>Shops</th>
-                            <th><span>&nbsp;&nbsp;</span></th>
-                            <th><span>&nbsp;&nbsp;</span></th>
-                            <th><span>&nbsp;&nbsp;</span></th>
-                            <th><span>&nbsp;&nbsp;</span></th>
-                            <th><span>&nbsp;&nbsp;</span></th>
-                            <th><span>&nbsp;&nbsp;</span></th>
-                            <th><span>&nbsp;&nbsp;</span></th>
-                            <th>Distance</th>
+                            <th scope="col" className="col-sm-11">Shops</th>
+                            <th scope="col" className="col-sm-1">Distance</th>
                         </tr>
                     </thead>
-                    <tbody>{listShops}</tbody>
+                    <tbody>
+                        {listShops}
+                    </tbody>
                 </table>
             </React.Fragment>
         )
