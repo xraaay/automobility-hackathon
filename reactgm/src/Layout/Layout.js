@@ -3,6 +3,7 @@ import ContentRouter from './ContentRouter'
 import { withRouter } from 'react-router-dom'
 import { Modal } from 'react-bootstrap'; 
 import SpeedCheckModal from '../containers/SpeedCheckModal';
+import { connect } from 'react-redux'
 
 const gm = window.gm;
 class Layout extends React.Component {
@@ -10,6 +11,7 @@ class Layout extends React.Component {
         super(props)
 
         this.state = {
+            checkin: false,
             odometer: null, 
             show: null,
             isCarMoving: false
@@ -17,6 +19,7 @@ class Layout extends React.Component {
         this.handleClose = this.handleClose.bind(this); 
         this.carMotionCheck = this.carMotionCheck.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
+        this.handleCloseCheckin = this.handleCloseCheckin.bind(this)
     }
 
     redirect = val => {
@@ -30,7 +33,7 @@ class Layout extends React.Component {
                 break;
             case 3:
                 this.props.history.push("/transaction")
-            // default:
+            default:
                 break;
         }
     }
@@ -40,6 +43,7 @@ class Layout extends React.Component {
     };
 
     componentDidMount() {
+        console.log(this.props.shopReducer)
         console.log('calling getVehicleData')
         gm.info.getVehicleData((data) => {
             console.log('vehicle data', data);
@@ -56,7 +60,26 @@ class Layout extends React.Component {
             }
             console.log(data)
         }, ['odometer']);
+
+        // gm.info.getCurrent
     }
+
+    componentDidUpdate(prevProps){
+        if(prevProps.shopReducer !== this.props.shopReducer){
+            gm.info.getCurrentPosition(data => {
+                console.log(data)
+            })
+            gm.info.watchVehicleData (data => {
+                if(data.gps_lat > 152458800){
+                    console.log(this.props.shopReducer)
+                    this.setState({
+                        checkin: true
+                    })
+                }
+            })
+        }
+    }
+    
     // so if car is in motion, another modal saying that you cannot schedule while car is in motion
     // --> remind me later 
 
@@ -64,6 +87,15 @@ class Layout extends React.Component {
         this.setState({ show: false });
         if(val){
             this.props.history.push("/shops")
+        }
+    }
+
+    handleCloseCheckin(val){
+        this.setState({
+            checkin: false
+        })
+        if(val){
+            this.props.history.push("/transaction")
         }
     }
 
@@ -77,6 +109,7 @@ class Layout extends React.Component {
 
         if (speed === 0) {
             this.setState({ isCarMoving: false })
+            this.handleClose();
         }
         else {
             this.setState({ isCarMoving: true })
@@ -121,9 +154,40 @@ class Layout extends React.Component {
                         </div>
                     </Modal.Body>
                 </Modal>
-            </React.Fragment>
+
+                
+                {this.props.shopReducer.shop && 
+                <Modal show={this.state.checkin} onHide={this.handleCloseCheckin} animation={false} style={{ top: "18%", backgroundColor: "black", overflow: "hidden"}} backdropStyle={{opacity: 0}}>
+                    <Modal.Header style={{backgroundColor: "black"}}>
+                        <Modal.Title style={{ textAlign: "center" }}>
+                            <div>
+                                <span className="glyphicon glyphicon-question-mark" style={{ fontSize: "50px"}} aria-hidden="true"></span>
+                                <h2>Checking In?</h2>
+                            </div>
+                        </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body style={{backgroundColor: "black"}}>
+
+                        <div className="container" style={{ fontWeight: "bold" }}>
+                            <div className="row" style={{ color: "white", fontSize: "12px" }}>
+                                <p>Are you checking into {this.props.shopReducer.shop.name}</p>
+                                <p>Address: {this.props.shopReducer.shop.address}</p>
+                                <div>
+                                    <button type="button" className="btn btn-default" onClick={e => this.handleCloseCheckin(true)}>Check In</button>
+                                    {/* <button type="button" className="btn btn-default" onClick={e => this.carMotionCheck(e)}>Schedule Now</button> */}
+                                    <button type="button" className="btn btn-default" onClick={e => this.handleCloseCheckin(false)}>No</button>
+                                </div>
+                            </div>
+                        </div>
+                    </Modal.Body>
+                </Modal>}
+                </React.Fragment>
         )
     }
 }
 
-export default withRouter(Layout)
+const mapStateToProps = state => ({
+    shopReducer: state.shopReducer
+})
+
+export default withRouter(connect(mapStateToProps)(Layout))
