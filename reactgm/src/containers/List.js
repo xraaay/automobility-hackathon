@@ -1,7 +1,7 @@
 import React from 'react'
 import { ListGroup, ListGroupItem } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import moment from 'moment'
+import moment from 'moment-timezone'
 
 const styles = {
     color: '#fff',
@@ -11,19 +11,28 @@ const styles = {
     margin: 0
 }
 class List extends React.Component {
-
-    render() {
+    constructor(props){
+        super(props)
+        this.state ={
+            apptList: []
+        }
+    }
+    componentDidMount(){
         const apptArr = this.props.appointmentsReducer.appointmentTimes;
         const apptList = []
         apptArr.forEach( item => {
-            apptList.push(<ListGroupItem style={styles}>{JSON.stringify(item)}</ListGroupItem>)
+            apptList.push(<ListGroupItem style={styles}>{moment(JSON.stringify(item))}</ListGroupItem>)
         })
-        
+        this.setState({
+            apptList: apptList
+        })
+    }
+    render() {
         return (
             <React.Fragment>
                 <div  className='container-fluid'>
                     <ListGroup>
-                        {apptList}
+                        {this.state.apptList}
                     </ListGroup>
                 </div>
             </React.Fragment>

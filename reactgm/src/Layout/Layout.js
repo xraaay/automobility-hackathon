@@ -59,7 +59,7 @@ class Layout extends React.Component {
     handleClose(val) {
         this.setState({ show: false });
         if(val){
-            this.props.history.push("/list")
+            this.props.history.push("/shops")
         }
     }
 
