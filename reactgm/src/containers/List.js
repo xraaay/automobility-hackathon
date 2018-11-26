@@ -25,7 +25,11 @@ class List extends React.Component {
         const apptList = []
         apptArr.forEach( item => {
             let date = moment(item).format('MMMM Do YYYY, h:mm:ss a')
-            apptList.push(<ListGroupItem style={styles}>{date}</ListGroupItem>)
+            apptList.push(
+                <tr>
+                    <td className='table_padding'>{date}</td>
+                </tr>
+            )
         })
         this.setState({
             apptList: apptList
@@ -46,11 +50,19 @@ class List extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div  className='container-fluid'>
-                    <ListGroup onClick={()=>this.setState({show:true})}>
-                        {this.state.apptList}
-                    </ListGroup>
+                <div  className='container_'>
+                    <table className="table table-dark table-lg table_font" >
+                        <thead>
+                            <tr>
+                                <th scope="col" style={{ color: 'white' }} className="col-sm-11">Available Dates</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.state.apptList}
+                        </tbody>
+                    </table>
                 </div>
+
                 <Modal show={this.state.show} onHide={this.handleClose} animation={false} style={{ top: "25%", color:'black' }} backdropStyle={{ opacity: 0.5 }}>
                     <Modal.Header>
                         <Modal.Title style={{ textAlign: "center" }}>
