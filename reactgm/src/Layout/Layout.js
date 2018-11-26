@@ -22,18 +22,21 @@ class Layout extends React.Component {
     redirect = val => {
         switch (val) {
             case 1:
-                this.props.history.push("/")
+                this.props.history.push("/shops")
                 break;
             case 2:
-                this.props.history.push("/test")
+                this.props.history.push("/list")
                 break;
             case 3:
-                this.props.history.push("/shops")
+                this.props.history.push("/transaction")
+                break;
+            default:
                 break;
         }
     }
     closeApp = () => {
-        gm.system.closeApp();
+        // gm.system.closeApp();
+        this.props.history.push("/")
       };
 
     componentDidMount() {
@@ -57,8 +60,11 @@ class Layout extends React.Component {
 // so if car is in motion, another modal saying that you cannot schedule while car is in motion
 // --> remind me later 
     
-    handleClose() {
+    handleClose(val) {
         this.setState({ show: false });
+        if(val){
+            this.props.history.push("/list")
+        }
     }
 
     handleCloseModal (closeModal) {
@@ -79,16 +85,12 @@ class Layout extends React.Component {
     }
 
     render() {
-        if (this.state.show == true) {
-            console.log('hello')
-        } 
-
         return (
             <React.Fragment>
-                {/* <button type="button" onClick={e => {this.redirect(1)}}>Homepage</button> */}
-                {/* <button type="button" onClick={e => {this.redirect(2)}}>Test</button> */}
-                <button type="button"  onClick={()=>this.closeApp()}>Back</button>
-                <button type="button" onClick={e => {this.redirect(3)}}>Shops</button>
+                <button type="button" className="btn btn-secondary" onClick={()=>this.closeApp()}>Back</button>
+                <button type="button" className="btn btn-secondary text-right" onClick={e => {this.redirect(1)}}>Shops</button>
+                <button type="button" className="btn btn-secondary" onClick={e => { this.redirect(2)}}>List</button>
+                <button type="button" className="btn btn-secondary" onClick={e => {this.redirect(3)}}>Transactions</button>
 
                 <ContentRouter />
                 <SpeedCheckModal speedCheck = {this.state.isCarMoving} handleCLoseModal = {this.handleCloseModal}/>
