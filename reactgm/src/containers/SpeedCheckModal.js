@@ -18,11 +18,11 @@ class SpeedCheckModal extends React.Component{
     render(){
         return(
             <React.Fragment>
-                 <Modal show={this.props.speedCheck} animation={false} style={{ top: "25%"}} backdropStyle={{ opacity: 0.5 }}>
+                 <Modal show={this.props.speedCheck} animation={false} style={{ top: "18%", backgroundColor: "black", overflow: "hidden"}} backdropStyle={{ opacity: 0 }}>
                     <Modal.Header style={{backgroundColor: "black"}}>
                         <Modal.Title style={{ textAlign: "center" }}>
                             <div>
-                                <span className="glyphicon glyphicon-exclamation-sign" style={{ fontSize: "50px", color: "#F7CE3E" }} aria-hidden="true"></span>
+                                <span className="glyphicon glyphicon-exclamation-sign" style={{ fontSize: "50px" }} aria-hidden="true"></span>
                                 <h2>Safety Alert</h2>
                             </div>
                         </Modal.Title>
@@ -31,7 +31,7 @@ class SpeedCheckModal extends React.Component{
 
 
                         <div className="container" style={{ fontWeight: "bold" }}>
-                            <div className="row" style={{ color: "black" }}>
+                            <div className="row" style={{color: "white", fontSize: "12px" }}>
 
                                 <p>You cannot schedule an appointment while the car is in motion.</p>
                                 <div>

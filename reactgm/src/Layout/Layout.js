@@ -88,6 +88,7 @@ class Layout extends React.Component {
     render() {
         return (
             <React.Fragment>
+                <br/>
                 <button type="button" className="btn btn-secondary" onClick={() => this.closeApp()}>Back</button>
                 <button type="button" className="btn btn-secondary" onClick={e => this.redirect(1)}>Shops</button>
                 <button type="button" className="btn btn-secondary" onClick={e => this.redirect(2)}>List</button>
@@ -96,21 +97,21 @@ class Layout extends React.Component {
                 <ContentRouter />
                 <SpeedCheckModal speedCheck = {this.state.isCarMoving} handleCloseModal = {this.handleCloseModal}/>
 
-                <Modal show={this.state.show} onHide={this.handleClose} animation={false} style={{ top: "25%", backgroundColor: "black" }} backdropStyle={{ opacity: 0 }}>
+                <Modal show={this.state.show} onHide={this.handleClose} animation={false} style={{ top: "18%", backgroundColor: "black", overflow: "hidden" }} backdropStyle={{ opacity: 0 }}>
                     <Modal.Header style={{backgroundColor: "black"}}>
                         <Modal.Title style={{ textAlign: "center" }}>
                             <div>
-                                <span className="glyphicon glyphicon-exclamation-sign" style={{ fontSize: "50px", color: "#F7CE3E" }} aria-hidden="true"></span>
-                                <h2>Car needs service</h2>
+                                <span className="glyphicon glyphicon-exclamation-sign" style={{ fontSize: "50px"}} aria-hidden="true"></span>
+                                <h2>Oil Maintenance Notice</h2>
                             </div>
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body style={{backgroundColor: "black"}}>
 
                         <div className="container" style={{ fontWeight: "bold" }}>
-                            <div className="row" style={{ color: "black" }}>
+                            <div className="row" style={{ color: "white", fontSize: "12px" }}>
                                 <p>Your mileage has reached {this.state.odometer}</p>
-                                <p>Would you like to schedule an appointment?</p>
+                                <p>Would you like to schedule an appointment for oil change?</p>
                                 <div>
                                     {/* <button type="button" className="btn btn-default" onClick={e => this.redirect(1)}>Schedule Now</button> */}
                                     <button type="button" className="btn btn-default" onClick={e => this.carMotionCheck(e)}>Schedule Now</button>
