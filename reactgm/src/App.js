@@ -46,9 +46,8 @@ class App extends Component {
       <BrowserRouter>
         <div className={styles.root}>
           <div>VIN: {this.state.vin}</div>
-          <button onClick={this.handleClose}>Close</button>
-          <div>Vehicle Light: {JSON.stringify(this.state.vehicle)}</div>
-          <Layout />
+          {/* <button onClick={this.handleClose}>Close</button> */}
+          <Layout/>
         </div>
       </BrowserRouter>
       </Provider>
