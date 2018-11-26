@@ -2,8 +2,8 @@ import React from 'react';
 import ContentRouter from './ContentRouter'
 import { withRouter } from 'react-router-dom'
 import { Modal } from 'react-bootstrap'; 
-import "typeface-palanquin-dark";
-const gm = window.gm; 
+
+const gm = window.gm;
 class Layout extends React.Component {
     constructor(props) {
         super(props) 
@@ -16,15 +16,21 @@ class Layout extends React.Component {
     }
 
     redirect = val => {
-        switch(val){
+        switch (val) {
             case 1:
                 this.props.history.push("/")
                 break;
             case 2:
                 this.props.history.push("/test")
                 break;
+            case 3:
+                this.props.history.push("/shops")
+                break;
         }
     }
+    closeApp = () => {
+        gm.system.closeApp();
+      };
 
     componentDidMount() {
         console.log('calling getVehicleData')
@@ -51,42 +57,43 @@ class Layout extends React.Component {
         this.setState({ show: false });
     }
 
-    render(){
+    render() {
         if (this.state.show == true) {
             console.log('hello')
         } 
+
         return (
             <React.Fragment>
-                <button type="button" onClick={e => {this.redirect(1)}}>Homepage</button>
-                <button type="button" onClick={e => {this.redirect(2)}}>Test</button>
+                {/* <button type="button" onClick={e => {this.redirect(1)}}>Homepage</button> */}
+                {/* <button type="button" onClick={e => {this.redirect(2)}}>Test</button> */}
+                <button type="button"  onClick={()=>this.closeApp()}>Back</button>
+                <button type="button" onClick={e => {this.redirect(3)}}>Shops</button>
+
                 <ContentRouter />
 
-               <Modal show={this.state.show} onHide={this.handleClose} animation={false} style={{ top: "25%" }} backdropStyle={{ opacity: 0.5 }}>
-                    <Modal.Body>
-                        <div className="container" style={{textAlign: "center"}}>
-                            <div className="row" style={{ color: "black" }}>
-                                <i class="fa fa-car"></i>
+                <Modal show={this.state.show} onHide={this.handleClose} animation={false} style={{ top: "25%" }} backdropStyle={{ opacity: 0.5 }}>
+                    <Modal.Header>
+                        <Modal.Title style={{ textAlign: "center" }}>
+                            <div>
+                                <span className="glyphicon glyphicon-exclamation-sign" style={{ fontSize: "50px", color: "#F7CE3E" }} aria-hidden="true"></span>
                                 <h2>Car needs service</h2>
+                            </div>
+                        </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+
+
+                        <div className="container" style={{ fontWeight: "bold" }}>
+                            <div className="row" style={{ color: "black" }}>
 
                                 <p>Your mileage has reached {this.state.odometer}</p>
                                 <p>Would you like to schedule an appointment?</p>
-                                <div style={{textAlign: "center"}}>
-                                <button type="button" className="btn btn-default" onClick={e => this.handleClose(e)}>Schedule Now</button>
-                                <button type="button" className="btn btn-default" onClick={e => this.handleClose(e)}>No, remind me later</button>
+                                <div>
+                                    <button type="button" className="btn btn-default" onClick={e => this.handleClose(e)}>Schedule Now</button>
+                                    <button type="button" className="btn btn-default" onClick={e => this.handleClose(e)}>No, remind me later</button>
                                 </div>
-                                {/* {select}
-                                
-                                <div style={{ textAlign: "left", padding: "20px", backgroundColor: "white", borderRadius: "10px" }}>
-                                <h4>Timer {ms(this.state.time)}</h4>
-                                {start}
-                                {resume}
-                                {stop}
-                                {reset}
-                                </div> */}
                             </div>
                         </div>
-                        <button type="button" onClick={e => this.handleClose(e)}>Test</button>
-
                     </Modal.Body>
                 </Modal>
 
