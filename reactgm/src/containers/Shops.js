@@ -40,7 +40,7 @@ class Shops extends React.Component {
           if (result.value) {
             swalWithBootstrapButtons(
               'Scheduled!',
-              'your next appointment date is on xx-xx-20xx',
+              `your next appointment date is on ${this.state.shopList.appoitnemtTimes}`,
               'success'
             )
           } else if (
@@ -60,13 +60,15 @@ class Shops extends React.Component {
         this.setState({
             shopList: this.props.appointmentsReducer
         })
+        debugger
     }
 
     render() {
 
-        const listShops = this.state.shopList.map((shop) => {
+        const listShops = this.state.shopList.shops.map((shop,index) => {
+            debugger
             return (
-                <tr onClick={()=>this.schedule()} key={shop.id}>
+                <tr onClick={()=>this.schedule()} key={index}>
                     <td>{shop.shopName}</td>
                     <td>{shop.distance}Mi</td>
                     {/* <td> {shop.address} </td> */}
