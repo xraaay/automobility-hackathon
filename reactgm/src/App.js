@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import styles from "./App.module.css";
 import { BrowserRouter } from "react-router-dom";
 import Layout from "./Layout/Layout";
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import globalStore from './reducers/index';
+
+
+const store = createStore(globalStore)
 
 const gm = window.gm;
 
@@ -21,6 +27,7 @@ class App extends Component {
 
   render() {
     return (
+      <Provider store={store}>
       <BrowserRouter>
         <div className={styles.root}>
           <div>VIN: {this.state.vin}</div>
@@ -28,6 +35,7 @@ class App extends Component {
           <Layout />
         </div>
       </BrowserRouter>
+      </Provider>
     );
   }
 }
