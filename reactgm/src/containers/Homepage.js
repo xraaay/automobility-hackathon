@@ -18,9 +18,7 @@ class Homepage extends React.Component {
     render(){
         return (
             <div>
-                {/* <h1>Homepage Check</h1>
-                <button onClick={() => this.props.history.push("/shops")}>Shops</button> */}
-                {/* <Shops refProp={this.toShop}></Shops> */}
+                <img src=""></img>
             </div>
         )
     }
