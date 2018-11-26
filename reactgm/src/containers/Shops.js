@@ -69,7 +69,7 @@ class Shops extends React.Component {
     render() {
         const listShops = this.props.appointmentsReducer.shops.map((shop, index) => {
             return (
-                <tr scope="row" onClick={() => this.schedule()} style={{ color: 'white' }} key={index}>
+                <tr scope="row" onClick={() => this.props.history.push('/list')} style={{ color: 'white' }} key={index}>
                     <td>{shop.name}</td>
                     <td>{shop.distance}Mi.</td>
                 </tr>

@@ -1,38 +1,39 @@
 import React from 'react';
 import ContentRouter from './ContentRouter'
 import { withRouter } from 'react-router-dom'
-import { Modal } from 'react-bootstrap'; 
+import { Modal } from 'react-bootstrap';
 
 const gm = window.gm;
 class Layout extends React.Component {
     constructor(props) {
-        super(props) 
+        super(props)
 
         this.state = {
-            odometer: null, 
+            odometer: null,
             show: null
         }
-        this.handleClose = this.handleClose.bind(this); 
+        this.handleClose = this.handleClose.bind(this);
     }
 
     redirect = val => {
         switch (val) {
             case 1:
                 this.props.history.push("/shops")
+                this.setState({show:false})
                 break;
             case 2:
                 this.props.history.push("/list")
                 break;
             case 3:
                 this.props.history.push("/transaction")
-            default:
+            // default:
                 break;
         }
     }
     closeApp = () => {
-        gm.system.closeApp();
-       // this.props.history.push("/")
-      };
+        //gm.system.closeApp();
+        this.props.history.push("/")
+    };
 
     componentDidMount() {
         console.log('calling getVehicleData')
@@ -48,13 +49,13 @@ class Layout extends React.Component {
                 this.setState({
                     show: true
                 })
-            } 
+            }
             console.log(data)
         }, ['odometer']);
     }
-// so if car is in motion, another modal saying that you cannot schedule while car is in motion
-// --> remind me later 
-    
+    // so if car is in motion, another modal saying that you cannot schedule while car is in motion
+    // --> remind me later 
+
     handleClose() {
         this.setState({ show: false });
     }
@@ -62,14 +63,16 @@ class Layout extends React.Component {
     render() {
         if (this.state.show == true) {
             console.log('hello')
-        } 
+        }
 
         return (
             <React.Fragment>
-                <button type="button" className="btn btn-secondary" onClick={()=>this.closeApp()}>Back</button>
+                <button type="button" className="btn btn-secondary" onClick={() => this.closeApp()}>Back</button>
                 <button type="button" className="btn btn-secondary" onClick={e => this.redirect(1)}>Shops</button>
                 <button type="button" className="btn btn-secondary" onClick={e => this.redirect(2)}>List</button>
-                <button type="button" className="btn btn-secondary" onClick={e =>this.redirect(3)}>Transactions</button>
+                <button type="button" className="btn btn-secondary" onClick={e => this.redirect(3)}>Transactions</button>
+
+                <ContentRouter />
 
                 <Modal show={this.state.show} onHide={this.handleClose} animation={false} style={{ top: "25%" }} backdropStyle={{ opacity: 0.5 }}>
                     <Modal.Header>
@@ -87,14 +90,13 @@ class Layout extends React.Component {
                                 <p>Your mileage has reached {this.state.odometer}</p>
                                 <p>Would you like to schedule an appointment?</p>
                                 <div>
-                                    <button type="button" className="btn btn-default" onClick={e => this.redirect(1).then(()=>this.handleClose())}>Schedule Now</button>
+                                    <button type="button" className="btn btn-default" onClick={e => this.redirect(1)}>Schedule Now</button>
                                     <button type="button" className="btn btn-default" onClick={e => this.handleClose(e)}>No, remind me later</button>
                                 </div>
                             </div>
                         </div>
                     </Modal.Body>
                 </Modal>
-                {/* <ContentRouter /> */}
             </React.Fragment>
         )
     }
