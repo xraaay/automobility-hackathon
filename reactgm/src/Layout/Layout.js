@@ -24,13 +24,18 @@ class Layout extends React.Component {
         switch (val) {
             case 1:
                 this.props.history.push("/shops")
-                this.setState({show:false})
+                this.setState({ show: false })
                 break;
             case 2:
                 this.props.history.push("/list")
                 break;
             case 3:
                 this.props.history.push("/transaction")
+                // default:
+                break;
+            case 4:
+                this.props.history.push("/recalls")
+                this.setState({ show: false })
                 break;
             case 4:
                 this.props.history.push("/check-in")
@@ -99,13 +104,13 @@ class Layout extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <br/>
-                <button type="button" className="btn btn-secondary" onClick={() => this.closeApp()}>Back</button>
-                <button type="button" className="btn btn-secondary" onClick={e => this.redirect(1)}>Shops</button>
-                <button type="button" className="btn btn-secondary" onClick={e => this.redirect(2)}>List</button>
-                <button type="button" className="btn btn-secondary" onClick={e => this.redirect(3)}>Transactions</button>
-                {this.state.alert? '':<button type="button" style={{float:'right'}} className="btn btn-danger" onClick={()=>this.setState({show:true})}>Alert</button>}
-
+                <div className='button_div'>
+                <button type="button" className="btn button" onClick={() => this.closeApp()}>Back</button>
+                <button type="button" className="btn button" onClick={e => this.redirect(1)}>Shops</button>
+                <button type="button" className="btn button" onClick={e => this.redirect(2)}>Appointments</button>
+                <button type="button" className="btn button" onClick={e => this.redirect(3)}>Wallet</button>
+                <button type="button" className="btn button" onClick={e => this.redirect(4)}>Recalls</button>
+                </div>
 
                 <ContentRouter />
                 <SpeedCheckModal speedCheck = {this.state.isCarMoving} handleCloseModal = {this.handleCloseModal}/>
