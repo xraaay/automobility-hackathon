@@ -1,7 +1,8 @@
 import React from 'react'
 import swal from 'sweetalert2'
+import{connect} from 'react-redux'
 
-export default class Shops extends React.Component {
+class Shops extends React.Component {
 
     constructor(props){
         super(props);
@@ -15,16 +16,21 @@ componentDidMount(){
 this.setState({
     shopList:this.props.appointmentsReducer
 })
-debugger
 }
 
+scrollToMyRef = () => {
+    window.scrollTo({
+        top:this.myRef.current.offsetTop-20, 
+        behavior: "auto"
+    })
+}
     render() {
 
         const listShops = this.state.shopList.map((shop,ind) => {
             return (
-                <tr key={ind}>
-                    <td>{shop.name}</td>
-                    <td> {shop.distance} </td>
+                <tr key={shop.id}>
+                    <td>{shop.shopName}</td>
+                    <td> {shop.address} </td>
                 </tr>
             )
         })
@@ -35,7 +41,7 @@ debugger
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Distance</th>
+                            <th>Address</th>
                         </tr>
                     </thead>
 
@@ -45,3 +51,9 @@ debugger
         )
     }
 }
+
+const mapStateToProps=state=>({
+    appointmentsReducer:state.appointmentsReducer
+})
+
+export default connect(mapStateToProps)(Shops)
