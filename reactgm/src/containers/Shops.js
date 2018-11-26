@@ -41,8 +41,8 @@ class Shops extends React.Component {
           if (result.value) {
             swalWithBootstrapButtons(
               'Scheduled!',
-              `your next appointment date is on ${this.props.appointmentsReducer.appointmentTimes[0]}`,
-              'success'
+              `Your next appointment date is on ${this.props.appointmentsReducer.appointmentTimes[0]}`,
+              'Success'
             )
           } else if (
             // Read more about handling dismissals
@@ -50,8 +50,8 @@ class Shops extends React.Component {
           ) {
             swalWithBootstrapButtons(
               'Cancelled',
-              'drive safe',
-              'error'
+              'Drive safe',
+              'Error'
             )
           }
         })
