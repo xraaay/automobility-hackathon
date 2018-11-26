@@ -75,6 +75,7 @@ class Layout extends React.Component {
                 <button type="button" className="btn btn-secondary text-right" onClick={e => {this.redirect(1)}}>Shops</button>
                 <button type="button" className="btn btn-secondary" onClick={e => { this.redirect(2)}}>List</button>
                 <button type="button" className="btn btn-secondary" onClick={e => {this.redirect(3)}}>Transactions</button>
+                <button type="button" className="btn btn-secondary" onClick={e => {this.redirect(5)}}>Check In</button>
 
                 <ContentRouter />
 
