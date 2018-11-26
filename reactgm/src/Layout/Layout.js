@@ -12,8 +12,8 @@ class Layout extends React.Component {
             odometer: null, 
             show: null
         }
-        this.handleClose = this.handleClose.bind(this); 
-    }
+        this.handleClose = this.handleClose.bind(this);
+        }
 
     redirect = val => {
         switch (val) {
@@ -71,10 +71,10 @@ class Layout extends React.Component {
 
         return (
             <React.Fragment>
-                {/* <button type="button" onClick={e => {this.redirect(1)}}>Homepage</button> */}
-                {/* <button type="button" onClick={e => {this.redirect(2)}}>Test</button> */}
+                {/* <button type="button" onClick={e => {this.redirect(1)}}>Homepage</button>
+                <button type="button" onClick={e => {this.redirect(2)}}>Test</button> */}
                 <button type="button"  onClick={()=>this.closeApp()}>Back</button>
-                <button type="button" onClick={e => {this.redirect(3)}}>Shops</button>
+                <button type="button" onClick={e => {this.redirect(4)}}>Shops</button>
                 <button type="button" onClick={e => {this.redirect(5)}}>Check In</button>
 
                 <ContentRouter />
