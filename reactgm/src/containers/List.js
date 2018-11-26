@@ -1,7 +1,7 @@
 import React from 'react'
 import { ListGroup, ListGroupItem } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import moment from 'moment-timezone'
+import moment from 'moment'
 
 const styles = {
     color: '#fff',
@@ -17,11 +17,13 @@ class List extends React.Component {
             apptList: []
         }
     }
+
     componentDidMount(){
         const apptArr = this.props.appointmentsReducer.appointmentTimes;
         const apptList = []
         apptArr.forEach( item => {
-            apptList.push(<ListGroupItem style={styles}>{moment(JSON.stringify(item))}</ListGroupItem>)
+            let date = moment(item).format('MMMM Do YYYY, h:mm:ss a')
+            apptList.push(<ListGroupItem style={styles}>{date}</ListGroupItem>)
         })
         this.setState({
             apptList: apptList
