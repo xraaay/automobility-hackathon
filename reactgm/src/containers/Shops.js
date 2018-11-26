@@ -29,8 +29,8 @@ class Shops extends React.Component {
         })
         
         swalWithBootstrapButtons({
-          title: this.state.shopList[0].shopName,
-          text: this.state.shopList[0].address,
+          title: this.state.shopList.shops[0].shopName,
+          text: this.state.shopList.shops[0].address,
           type: 'warning',
           showCancelButton: true,
           confirmButtonText: 'Yes, schedule appointment',
@@ -40,7 +40,7 @@ class Shops extends React.Component {
           if (result.value) {
             swalWithBootstrapButtons(
               'Scheduled!',
-              `your next appointment date is on xx-xx-xxxx`,
+              `your next appointment date is on ${this.props.appointmentsReducer.appointmentTimes[0]}`,
               'success'
             )
           } else if (
@@ -57,21 +57,27 @@ class Shops extends React.Component {
       }
       
     componentDidMount() {
+        // console.log("check cdm")
         this.setState({
             shopList: this.props.appointmentsReducer
         })
-        debugger
+        console.log(this.props.appointmentsReducer);
     }
 
     render() {
-
-        const listShops = this.state.shopList.shops.map((shop,index) => {
+        const listShops = this.props.appointmentsReducer.shops.map((shop,index) => {
             debugger
             return (
-                <tr onClick={()=>this.schedule()} key={index}>
-                    <td>{shop.shopName}</td>
-                    <td>{shop.distance}Mi</td>
-                    {/* <td> {shop.address} </td> */}
+                <tr style={{color:"#2c3e50"}} onClick={()=>this.schedule()} key={index}>
+                    <td>{shop.name}</td>
+                    <td><span>&nbsp;&nbsp;</span></td>
+                    <td><span>&nbsp;&nbsp;</span></td>
+                    <td><span>&nbsp;&nbsp;</span></td>
+                    <td><span>&nbsp;&nbsp;</span></td>
+                    <td><span>&nbsp;&nbsp;</span></td>
+                    <td><span>&nbsp;&nbsp;</span></td>
+                    <td><span>&nbsp;&nbsp;</span></td>
+                    <td>{shop.distance}Mi.</td>
                 </tr>
             )
         })
@@ -80,14 +86,20 @@ class Shops extends React.Component {
                 <div ref={this.props.refProp} />
                 <h1>check shops</h1>
                 <button type="button" onClick={() => this.props.history.push("/")}>Homepage</button>
-                <table className="table table-inverse">
+                <table className="" style={{backgroundColor:'#f7ce3e'}}>
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>distance</th>
+                            <th>Shops</th>
+                            <th><span>&nbsp;&nbsp;</span></th>
+                            <th><span>&nbsp;&nbsp;</span></th>
+                            <th><span>&nbsp;&nbsp;</span></th>
+                            <th><span>&nbsp;&nbsp;</span></th>
+                            <th><span>&nbsp;&nbsp;</span></th>
+                            <th><span>&nbsp;&nbsp;</span></th>
+                            <th><span>&nbsp;&nbsp;</span></th>
+                            <th>Distance</th>
                         </tr>
                     </thead>
-
                     <tbody>{listShops}</tbody>
                 </table>
             </React.Fragment>
