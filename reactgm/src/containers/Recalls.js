@@ -7,24 +7,25 @@ class Recalls extends React.Component {
         super(props);
 
         this.state = {
-            shopList: []
+            recallList: []
         }
     }
 
     componentDidMount() {
         // console.log("check cdm")
         this.setState({
-            shopList: this.props.appointmentsReducer
+            recallList: this.props.appointmentsReducer
         })
         console.log(this.props.appointmentsReducer);
     }
 
     render() {
-        const listShops = this.props.appointmentsReducer.shops.map((shop, index) => {
+        const listRecall = this.props.appointmentsReducer.vehicalData.map((item, index) => {
             return (
                 <tr scope="row" onClick={() => this.props.history.push('/list')} style={{ color: 'white' }} key={index}>
-                    <td>{shop.name}</td>
-                    <td>{shop.distance}Mi.</td>
+                    <td>{item.recall.number}</td>
+                    <td>{item.recall.reason}</td>
+                    <td>{item.recall.startDate}</td>
                 </tr>
             )
         })
@@ -38,12 +39,13 @@ class Recalls extends React.Component {
                 <table className="table table-dark table-lg" style={{ fontSize: '20px' }}>
                     <thead>
                         <tr>
-                            <th scope="col" style={{ color: 'white' }} className="col-sm-11">Recall No.</th>
-                            <th scope="col" style={{ color: 'white' }} className="col-sm-1">Recall Date</th>
+                            <th scope="col" style={{ color: 'white' }} className="col-sm-2">Recall No.</th>
+                            <th scope="col" style={{ color: 'white' }} className="col-sm-8">Reason</th>
+                            <th scope="col" style={{ color: 'white' }} className="col-sm-2">Recall Date</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {listShops}
+                        {listRecall}
                     </tbody>
                 </table>
                 </div>
