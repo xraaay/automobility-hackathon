@@ -78,6 +78,7 @@ class Shops extends React.Component {
 
         return (
             <React.Fragment>
+                <div>
                 <div ref={this.props.refProp} />
                 <h1 style={{ color: 'white' }} >Nearby Shops</h1>
                 {/* <table style={{position:'center', margin:'auto'}}> */}
@@ -92,6 +93,7 @@ class Shops extends React.Component {
                         {listShops}
                     </tbody>
                 </table>
+                </div>
             </React.Fragment>
         )
     }

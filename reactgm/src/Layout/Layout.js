@@ -66,10 +66,12 @@ class Layout extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <button type="button" className="btn btn-secondary" onClick={() => this.closeApp()}>Back</button>
-                <button type="button" className="btn btn-secondary" onClick={e => this.redirect(1)}>Shops</button>
-                <button type="button" className="btn btn-secondary" onClick={e => this.redirect(2)}>List</button>
-                <button type="button" className="btn btn-secondary" onClick={e => this.redirect(3)}>Transactions</button>
+                <div className='button_div'>
+                <button type="button" className="btn button" onClick={() => this.closeApp()}>Back</button>
+                <button type="button" className="btn button" onClick={e => this.redirect(1)}>Shops</button>
+                <button type="button" className="btn button" onClick={e => this.redirect(2)}>Appointments</button>
+                <button type="button" className="btn button" onClick={e => this.redirect(3)}>Wallet</button>
+                </div>
 
                 <ContentRouter />
 
