@@ -56,7 +56,7 @@ class Layout extends React.Component {
     // so if car is in motion, another modal saying that you cannot schedule while car is in motion
     // --> remind me later 
 
-    handleClose() {
+    handleClose(val) {
         this.setState({ show: false });
         if(val){
             this.props.history.push("/shops")
