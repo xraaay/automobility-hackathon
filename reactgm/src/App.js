@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import globalStore from './reducers/index';
 import ContentRouter from './Layout/ContentRouter'
+import List from './containers/List';
 
 
 const store = createStore(globalStore)
@@ -37,6 +38,7 @@ class App extends Component {
         <div className={styles.root}>
           <div>VIN: {this.state.vin}</div>
           <button onClick={this.handleClose}>Close</button>
+          <List/>
           <ContentRouter />
         </div>
       </BrowserRouter>

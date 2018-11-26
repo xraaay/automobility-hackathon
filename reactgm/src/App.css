@@ -46,4 +46,10 @@ html #root{
   color: '#fff';
   background-color: '#000';
   overflow: auto;
+  width: 1265px;
+  height: 660px;
+  padding-top: '15px';
+  font-size: '25px';
 }
+
+/* 1280 x 660 */

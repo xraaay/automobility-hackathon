@@ -1,12 +1,14 @@
 import React from 'react'
 import { ListGroup, ListGroupItem } from 'react-bootstrap'
 import { connect } from 'react-redux'
-import { Modal, Button } from 'react-bootstrap'
+import moment from 'moment'
 
 const styles = {
     color: '#fff',
     backgroundColor: '#000',
-    padding: '10px 0'
+    paddingTop: '15px',
+    fontSize: '25px',
+    margin: 0
 }
 class List extends React.Component {
 
@@ -19,7 +21,7 @@ class List extends React.Component {
         
         return (
             <React.Fragment>
-                <div  className='container list'>
+                <div  className='container-fluid'>
                     <ListGroup>
                         {apptList}
                     </ListGroup>
