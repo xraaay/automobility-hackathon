@@ -47,52 +47,52 @@ const appointmentsReducer = {
                     ,reason:"an electrical signal short may cause the transfer case to shift to neutral without the driver's input"
                     ,consequence:"If the transfer case switches to neutral while the vehicle is parked and the parking brake is not in use, the vehicle may roll away increasing the risk of injury to bystanders."
                 }
-            },
-            {
-                vin: "1FTRW08L83KA45962"
-                ,aaia: "12112"
-                ,make: "BMW"
-                ,year: 2017
-                ,model: "M3"
-                ,engine: "V6, 3.0L; V6"
-                ,engineType: "V6, 3.0L; V6"
-                ,recall:{
-                    number:"14V374000"
-                    ,startDate:'06/27/2014'
-                    ,reason:"an electrical signal short may cause the transfer case to shift to neutral without the driver's input"
-                    ,consequence:"If the transfer case switches to neutral while the vehicle is parked and the parking brake is not in use, the vehicle may roll away increasing the risk of injury to bystanders."
-                }
-            },
-            {
-                vin: "1GC2KVEG6FZ106009"
-                ,aaia: "12113"
-                ,make: "CHEVY"
-                ,year: 2015
-                ,model: "SILVERADO"
-                ,engine: "6.0 Engine FFV (L96)"
-                ,engineType: "6.0L 8cyl 6A"
-                ,recall:{
-                    number:"16V209000"
-                    ,startDate:'07/23/2014'
-                    ,reason:"Due to an incomplete weld on the seat hook bracket assembly, the front seats in the affected vehicles may not stay secured in place during a high load condition such as a crash."
-                    ,consequence:"A seat that does not stay secured increases the risk of occupant injury in a vehicle crash."
-                }
-            },
-            {
-                vin: "1FTRW08L83KA45964"
-                ,aaia: "12114"
-                ,make: "CHRYSLER"
-                ,year: 2018
-                ,model: "300"
-                ,engine: "V6, 3.6L; 6V"
-                ,engineType: "V6, 3.6L; 6V"
-                ,recall:{
-                    number:"14V374000"
-                    ,startDate:'06/27/2014'
-                    ,reason:"an electrical signal short may cause the transfer case to shift to neutral without the driver's input"
-                    ,consequence:"If the transfer case switches to neutral while the vehicle is parked and the parking brake is not in use, the vehicle may roll away increasing the risk of injury to bystanders."
-                }
             }
+            // {
+            //     vin: "1FTRW08L83KA45962"
+            //     ,aaia: "12112"
+            //     ,make: "BMW"
+            //     ,year: 2017
+            //     ,model: "M3"
+            //     ,engine: "V6, 3.0L; V6"
+            //     ,engineType: "V6, 3.0L; V6"
+            //     ,recall:{
+            //         number:"14V374000"
+            //         ,startDate:'06/27/2014'
+            //         ,reason:"an electrical signal short may cause the transfer case to shift to neutral without the driver's input"
+            //         ,consequence:"If the transfer case switches to neutral while the vehicle is parked and the parking brake is not in use, the vehicle may roll away increasing the risk of injury to bystanders."
+            //     }
+            // },
+            // {
+            //     vin: "1GC2KVEG6FZ106009"
+            //     ,aaia: "12113"
+            //     ,make: "CHEVY"
+            //     ,year: 2015
+            //     ,model: "SILVERADO"
+            //     ,engine: "6.0 Engine FFV (L96)"
+            //     ,engineType: "6.0L 8cyl 6A"
+            //     ,recall:{
+            //         number:"16V209000"
+            //         ,startDate:'07/23/2014'
+            //         ,reason:"Due to an incomplete weld on the seat hook bracket assembly, the front seats in the affected vehicles may not stay secured in place during a high load condition such as a crash."
+            //         ,consequence:"A seat that does not stay secured increases the risk of occupant injury in a vehicle crash."
+            //     }
+            // },
+            // {
+            //     vin: "1FTRW08L83KA45964"
+            //     ,aaia: "12114"
+            //     ,make: "CHRYSLER"
+            //     ,year: 2018
+            //     ,model: "300"
+            //     ,engine: "V6, 3.6L; 6V"
+            //     ,engineType: "V6, 3.6L; 6V"
+            //     ,recall:{
+            //         number:"14V374000"
+            //         ,startDate:'06/27/2014'
+            //         ,reason:"an electrical signal short may cause the transfer case to shift to neutral without the driver's input"
+            //         ,consequence:"If the transfer case switches to neutral while the vehicle is parked and the parking brake is not in use, the vehicle may roll away increasing the risk of injury to bystanders."
+            //     }
+            // }
         ],
         users:[
             {

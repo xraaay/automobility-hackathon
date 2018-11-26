@@ -1,30 +1,31 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-class Shops extends React.Component {
+class Recalls extends React.Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            shopList: []
+            recallList: []
         }
     }
 
     componentDidMount() {
         // console.log("check cdm")
         this.setState({
-            shopList: this.props.appointmentsReducer
+            recallList: this.props.appointmentsReducer
         })
         console.log(this.props.appointmentsReducer);
     }
 
     render() {
-        const listShops = this.props.appointmentsReducer.shops.map((shop, index) => {
+        const listRecall = this.props.appointmentsReducer.vehicalData.map((item, index) => {
             return (
                 <tr scope="row" onClick={() => this.props.history.push('/list')} style={{ color: 'white' }} key={index}>
-                    <td>{shop.name}</td>
-                    <td>{shop.distance}Mi.</td>
+                    <td>{item.recall.number}</td>
+                    <td>{item.recall.reason}</td>
+                    <td>{item.recall.startDate}</td>
                 </tr>
             )
         })
@@ -33,17 +34,18 @@ class Shops extends React.Component {
             <React.Fragment>
                 <div>
                 <div ref={this.props.refProp} />
-                <h1 style={{ color: 'white' }} >Nearby Shops</h1>
+                <h1 style={{ color: 'white' }} >Recalls</h1>
                 {/* <table style={{position:'center', margin:'auto'}}> */}
                 <table className="table table-dark table-lg" style={{ fontSize: '20px' }}>
                     <thead>
                         <tr>
-                            <th scope="col" style={{ color: 'white' }} className="col-sm-11">Shops</th>
-                            <th scope="col" style={{ color: 'white' }} className="col-sm-1">Distance</th>
+                            <th scope="col" style={{ color: 'white' }} className="col-sm-2">Recall No.</th>
+                            <th scope="col" style={{ color: 'white' }} className="col-sm-8">Reason</th>
+                            <th scope="col" style={{ color: 'white' }} className="col-sm-2">Recall Date</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {listShops}
+                        {listRecall}
                     </tbody>
                 </table>
                 </div>
@@ -56,4 +58,4 @@ const mapStateToProps = state => ({
     appointmentsReducer: state.appointmentsReducer
 })
 
-export default connect(mapStateToProps)(Shops)
+export default connect(mapStateToProps)(Recalls)
