@@ -16,7 +16,7 @@ class Homepage extends React.Component {
 
     render(){
         return (
-            <div style={{backgroundImage: "url('home.png')"}}>
+            <div style={{backgroundImage: "/"}}>
                 <img src="home.png" />
             </div>
         )
