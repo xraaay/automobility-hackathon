@@ -33,7 +33,6 @@ class App extends Component {
       <Provider store={store}>
       <BrowserRouter>
         <div className={styles.root}>
-          <div>VIN: {this.state.vin}</div>
           <button onClick={this.handleClose}>Close</button>
           <Layout />
         </div>

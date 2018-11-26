@@ -56,15 +56,14 @@ class Layout extends React.Component {
 // so if car is in motion, another modal saying that you cannot schedule while car is in motion
 // --> remind me later 
     
-    handleClose() {
+    handleClose(val) {
         this.setState({ show: false });
+        if(val){
+            this.props.history.push("/list")
+        }
     }
 
     render() {
-        if (this.state.show == true) {
-            console.log('hello')
-        } 
-
         return (
             <React.Fragment>
                 <button type="button" className="btn btn-secondary" onClick={()=>this.closeApp()}>Back</button>
@@ -92,8 +91,8 @@ class Layout extends React.Component {
                                 <p>Your mileage has reached {this.state.odometer}</p>
                                 <p>Would you like to schedule an appointment?</p>
                                 <div>
-                                    <button type="button" className="btn btn-default" onClick={e => this.handleClose(e)}>Schedule Now</button>
-                                    <button type="button" className="btn btn-default" onClick={e => this.handleClose(e)}>No, remind me later</button>
+                                    <button type="button" className="btn btn-default" onClick={e => {this.handleClose(true)}}>Schedule Now</button>
+                                    <button type="button" className="btn btn-default" onClick={e => {this.handleClose(false)}}>No, remind me later</button>
                                 </div>
                             </div>
                         </div>
