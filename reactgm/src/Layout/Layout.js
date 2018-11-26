@@ -63,37 +63,43 @@ class Layout extends React.Component {
         } 
 
         return (
-            <React.Fragment>
+            <React.Fragment style={{backgroundColor: "black"}}>
+                {/*   <button type="button" onClick={e => { this.redirect(3) }}>Shops</button>
+                </div> */}
                 {/* <button type="button" onClick={e => {this.redirect(1)}}>Homepage</button> */}
                 {/* <button type="button" onClick={e => {this.redirect(2)}}>Test</button> */}
-                <button type="button"  onClick={()=>this.closeApp()}>Back</button>
-                <button type="button" onClick={e => {this.redirect(3)}}>Shops</button>
+
 
                 <ContentRouter />
 
                 <Modal show={this.state.show} onHide={this.handleClose} animation={false} style={{ top: "25%" }} backdropStyle={{ opacity: 0.5 }}>
-                    <Modal.Header>
+                    {/* <Modal.Header>
                         <Modal.Title style={{ textAlign: "center" }}>
                             <div>
                                 <span className="glyphicon glyphicon-exclamation-sign" style={{ fontSize: "50px", color: "#F7CE3E" }} aria-hidden="true"></span>
                                 <h2>Car needs service</h2>
                             </div>
                         </Modal.Title>
-                    </Modal.Header>
+                    </Modal.Header> */}
                     <Modal.Body>
-
-
                         <div className="container" style={{ fontWeight: "bold" }}>
                             <div className="row" style={{ color: "black" }}>
+                            <br/>
+                                <div>
+                                    <span className="glyphicon glyphicon-exclamation-sign" style={{ fontSize: "50px", color: "#F7CE3E" }} aria-hidden="true"></span>
+                                    <h2>Car needs service</h2>
+                                </div>
 
                                 <p>Your mileage has reached {this.state.odometer}</p>
                                 <p>Would you like to schedule an appointment?</p>
                                 <div>
-                                    <button type="button" className="btn btn-default" onClick={e => this.handleClose(e)}>Schedule Now</button>
+                                    <button type="button" className="btn btn-default" onClick={e => { this.redirect(3) }}>Schedule Now</button>
                                     <button type="button" className="btn btn-default" onClick={e => this.handleClose(e)}>No, remind me later</button>
+                                    <button type="button" onClick={() => this.closeApp()}>Back</button>
                                 </div>
                             </div>
                         </div>
+                        <br/> <br/> <br/>
                     </Modal.Body>
                 </Modal>
 

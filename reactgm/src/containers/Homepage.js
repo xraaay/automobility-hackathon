@@ -1,6 +1,5 @@
 import React from 'react';
 import Shops from './Shops';
-
 class Homepage extends React.Component {
     constructor(props){
         super(props)
@@ -17,8 +16,8 @@ class Homepage extends React.Component {
 
     render(){
         return (
-            <div>
-                <img src=""></img>
+            <div style={{backgroundImage: "url('home.png')"}}>
+                <img src="home.png" />
             </div>
         )
     }

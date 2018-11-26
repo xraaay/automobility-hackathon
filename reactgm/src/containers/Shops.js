@@ -102,6 +102,8 @@ class Shops extends React.Component {
                     </thead>
                     <tbody>{listShops}</tbody>
                 </table>
+                <button type="button" onClick={() => this.closeApp()}>Back</button>
+
             </React.Fragment>
         )
     }
