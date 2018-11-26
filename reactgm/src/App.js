@@ -28,16 +28,18 @@ class App extends Component {
 
   render() {
     return (
+      <div>
+      {/* <button type="button" style={{position:'absolute', top: 100,left: 0}} onClick={this.handleClose}>Back</button> */}
       <Provider store={store}>
       <BrowserRouter>
-        <div className={styles.root} style={{backgroundColor:'#00061a'}}>
+        <div className={styles.root} style={{backgroundColor:''}}>
           {/* <div>VIN: {this.state.vin}</div> */}
-          <button onClick={this.handleClose}>Close</button>
           {/* <button onClick={this.schedule}>Schedule</button> */}
           <Layout />
         </div>
       </BrowserRouter>
       </Provider>
+      </div>
     );
   }
 }

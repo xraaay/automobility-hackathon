@@ -2,6 +2,8 @@ import React from 'react';
 import ContentRouter from './ContentRouter'
 import { withRouter } from 'react-router-dom'
 
+const gm = window.gm;
+
 class Layout extends React.Component {
     redirect = val => {
         switch (val) {
@@ -16,12 +18,16 @@ class Layout extends React.Component {
                 break;
         }
     }
+    handleClose = () => {
+        gm.system.closeApp();
+      };
 
     render() {
         return (
             <React.Fragment>
-                <button type="button" onClick={e => {this.redirect(1)}}>Homepage</button>
+                {/* <button type="button" onClick={e => {this.redirect(1)}}>Homepage</button> */}
                 {/* <button type="button" onClick={e => {this.redirect(2)}}>Test</button> */}
+                <button type="button"  onClick={()=>this.handleClose()}>Back</button>
                 <button type="button" onClick={e => {this.redirect(3)}}>Shops</button>
 
                 <ContentRouter />
