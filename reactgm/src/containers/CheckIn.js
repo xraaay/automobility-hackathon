@@ -18,8 +18,8 @@ class CheckIn extends React.Component {
         //     let lng = position.coords.longitude;
         // }
 
-    gm.info.getCurrentPosition(success => {
-        console.log(success)
+    gm.info.getCurrentPosition((data) => {
+        console.log("current location" + data.success)
     })
     }
 
@@ -27,6 +27,7 @@ class CheckIn extends React.Component {
         return (
             <React.Fragment>
             <h1>Check In</h1>
+            <p>{this.state.currentLocation}</p>
             </React.Fragment>
         )
     }

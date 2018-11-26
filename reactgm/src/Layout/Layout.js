@@ -26,10 +26,10 @@ class Layout extends React.Component {
             case 3:
                 this.props.history.push("/transaction")
                 break;
-            default:
-                break;
-            case 5:
+            case 4:
                 this.props.history.push("/check-in")
+                break;
+            default:
                 break;
 
         }
@@ -75,7 +75,7 @@ class Layout extends React.Component {
                 <button type="button" className="btn btn-secondary text-right" onClick={e => {this.redirect(1)}}>Shops</button>
                 <button type="button" className="btn btn-secondary" onClick={e => { this.redirect(2)}}>List</button>
                 <button type="button" className="btn btn-secondary" onClick={e => {this.redirect(3)}}>Transactions</button>
-                <button type="button" className="btn btn-secondary" onClick={e => {this.redirect(5)}}>Check In</button>
+                <button type="button" className="btn btn-secondary" onClick={e => {this.redirect(4)}}>Check In</button>
 
                 <ContentRouter />
 
