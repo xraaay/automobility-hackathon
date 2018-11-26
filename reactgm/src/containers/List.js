@@ -2,6 +2,7 @@ import React from 'react'
 import { ListGroup, ListGroupItem } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import moment from 'moment'
+import { Modal } from 'react-bootstrap'
 
 const styles = {
     color: '#fff',
@@ -37,6 +38,29 @@ class List extends React.Component {
                         {this.state.apptList}
                     </ListGroup>
                 </div>
+                <Modal show={this.state.show} onHide={this.handleClose} animation={false} style={{ top: "25%" }} backdropStyle={{ opacity: 0.5 }}>
+                    <Modal.Header>
+                        <Modal.Title style={{ textAlign: "center" }}>
+                            <div>
+                                <span className="glyphicon glyphicon-exclamation-sign" style={{ fontSize: "50px", color: "#F7CE3E" }} aria-hidden="true"></span>
+                                <h2>Confirm Appoitment?</h2>
+                            </div>
+                        </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+
+                        <div className="container" style={{ fontWeight: "bold" }}>
+                            <div className="row" style={{ color: "black" }}>
+                                <p>Confirm {this.state.odometer}</p>
+                                <p>Do Later</p>
+                                <div>
+                                    <button type="button" className="btn btn-default" onClick={e => this.redirect(1)}>Schedule Now</button>
+                                    <button type="button" className="btn btn-default" onClick={e => this.handleClose(e)}>No, remind me later</button>
+                                </div>
+                            </div>
+                        </div>
+                    </Modal.Body>
+                </Modal>
             </React.Fragment>
         )
     }
