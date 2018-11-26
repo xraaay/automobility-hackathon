@@ -80,6 +80,7 @@ class Layout extends React.Component {
         }
         else {
             this.setState({ isCarMoving: true })
+            console.log("yes it's in the parent")
             this.handleClose();
         }
     }
@@ -93,10 +94,10 @@ class Layout extends React.Component {
                 <button type="button" className="btn btn-secondary" onClick={e => this.redirect(3)}>Transactions</button>
 
                 <ContentRouter />
-                <SpeedCheckModal speedCheck = {this.state.isCarMoving} handleCLoseModal = {this.handleCloseModal}/>
+                <SpeedCheckModal speedCheck = {this.state.isCarMoving} handleCloseModal = {this.handleCloseModal}/>
 
-                <Modal show={this.state.show} onHide={this.handleClose} animation={false} style={{ top: "25%" }} backdropStyle={{ opacity: 0.5 }}>
-                    <Modal.Header>
+                <Modal show={this.state.show} onHide={this.handleClose} animation={false} style={{ top: "25%", backgroundColor: "black" }} backdropStyle={{ opacity: 0 }}>
+                    <Modal.Header style={{backgroundColor: "black"}}>
                         <Modal.Title style={{ textAlign: "center" }}>
                             <div>
                                 <span className="glyphicon glyphicon-exclamation-sign" style={{ fontSize: "50px", color: "#F7CE3E" }} aria-hidden="true"></span>
@@ -104,14 +105,15 @@ class Layout extends React.Component {
                             </div>
                         </Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>
+                    <Modal.Body style={{backgroundColor: "black"}}>
 
                         <div className="container" style={{ fontWeight: "bold" }}>
                             <div className="row" style={{ color: "black" }}>
                                 <p>Your mileage has reached {this.state.odometer}</p>
                                 <p>Would you like to schedule an appointment?</p>
                                 <div>
-                                    <button type="button" className="btn btn-default" onClick={e => this.redirect(1)}>Schedule Now</button>
+                                    {/* <button type="button" className="btn btn-default" onClick={e => this.redirect(1)}>Schedule Now</button> */}
+                                    <button type="button" className="btn btn-default" onClick={e => this.carMotionCheck(e)}>Schedule Now</button>
                                     <button type="button" className="btn btn-default" onClick={e => this.handleClose(e)}>No, remind me later</button>
                                 </div>
                             </div>

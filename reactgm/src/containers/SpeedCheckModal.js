@@ -11,34 +11,15 @@ class SpeedCheckModal extends React.Component{
         
     }
 
-    // componentDidMount() {
-    //     this.speedCheck();
-    // }
-    // componentDidUpdate(prevProps) {
-    //     if(prevProps !== this.props.speedCheck)
-    //     {
-    //         this.setState({ show: this.props.speedCheck})
-    //     }
-    // }
-
-    // speedCheck(){
-    //     if (this.props.speedCheck){
-    //         this.setState({ show: true})
-    //     }
-    //     else {
-    //         this.setState({ show: false})
-    //     }
-    // }
-
     handleClose(){
-        this.props.handleCLoseModal(this.state.show);
+        this.props.handleCloseModal(this.state.show);
     }
 
     render(){
         return(
             <React.Fragment>
-                 <Modal show={this.props.speedCheck} animation={false} style={{ top: "25%" }} backdropStyle={{ opacity: 0.5 }}>
-                    <Modal.Header>
+                 <Modal show={this.props.speedCheck} animation={false} style={{ top: "25%"}} backdropStyle={{ opacity: 0.5 }}>
+                    <Modal.Header style={{backgroundColor: "black"}}>
                         <Modal.Title style={{ textAlign: "center" }}>
                             <div>
                                 <span className="glyphicon glyphicon-exclamation-sign" style={{ fontSize: "50px", color: "#F7CE3E" }} aria-hidden="true"></span>
@@ -46,7 +27,7 @@ class SpeedCheckModal extends React.Component{
                             </div>
                         </Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>
+                    <Modal.Body style={{backgroundColor: "black"}}>
 
 
                         <div className="container" style={{ fontWeight: "bold" }}>
