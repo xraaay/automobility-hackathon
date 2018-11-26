@@ -34,7 +34,7 @@ const appointmentsReducer = {
         ]
     }
 
-const reducer = (state = initialState, action) => {
+const reducer = (state = appointmentsReducer, action) => {
     switch(action.type){
 
         default:
