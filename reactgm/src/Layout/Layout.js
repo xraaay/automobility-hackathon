@@ -1,15 +1,15 @@
 import React from 'react';
 import ContentRouter from './ContentRouter'
 import { withRouter } from 'react-router-dom'
-import { Modal } from 'react-bootstrap'; 
+import { Modal } from 'react-bootstrap';
 
 const gm = window.gm;
 class Layout extends React.Component {
     constructor(props) {
-        super(props) 
+        super(props)
 
         this.state = {
-            odometer: null, 
+            odometer: null,
             show: null
         }
         this.handleClose = this.handleClose.bind(this);
@@ -19,6 +19,7 @@ class Layout extends React.Component {
         switch (val) {
             case 1:
                 this.props.history.push("/shops")
+                this.setState({show:false})
                 break;
             case 2:
                 this.props.history.push("/list")
@@ -35,9 +36,9 @@ class Layout extends React.Component {
         }
     }
     closeApp = () => {
-        // gm.system.closeApp();
+        //gm.system.closeApp();
         this.props.history.push("/")
-      };
+    };
 
     componentDidMount() {
         console.log('calling getVehicleData')
@@ -53,22 +54,21 @@ class Layout extends React.Component {
                 this.setState({
                     show: true
                 })
-            } 
+            }
             console.log(data)
         }, ['odometer']);
     }
-// so if car is in motion, another modal saying that you cannot schedule while car is in motion
-// --> remind me later 
-    
-    handleClose() {
+    // so if car is in motion, another modal saying that you cannot schedule while car is in motion
+    // --> remind me later 
+
+    handleClose(val) {
         this.setState({ show: false });
+        if(val){
+            this.props.history.push("/shops")
+        }
     }
 
     render() {
-        if (this.state.show == true) {
-            console.log('hello')
-        } 
-
         return (
             <React.Fragment>
                 <button type="button" className="btn btn-secondary" onClick={()=>this.closeApp()}>Back</button>
@@ -90,21 +90,18 @@ class Layout extends React.Component {
                     </Modal.Header>
                     <Modal.Body>
 
-
                         <div className="container" style={{ fontWeight: "bold" }}>
                             <div className="row" style={{ color: "black" }}>
-
                                 <p>Your mileage has reached {this.state.odometer}</p>
                                 <p>Would you like to schedule an appointment?</p>
                                 <div>
-                                    <button type="button" className="btn btn-default" onClick={e => this.handleClose(e)}>Schedule Now</button>
+                                    <button type="button" className="btn btn-default" onClick={e => this.redirect(1)}>Schedule Now</button>
                                     <button type="button" className="btn btn-default" onClick={e => this.handleClose(e)}>No, remind me later</button>
                                 </div>
                             </div>
                         </div>
                     </Modal.Body>
                 </Modal>
-
             </React.Fragment>
         )
     }

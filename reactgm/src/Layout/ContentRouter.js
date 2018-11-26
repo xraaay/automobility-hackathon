@@ -4,9 +4,11 @@ import Homepage from '../containers/Homepage';
 import CheckIn from '../containers/CheckIn';
 import List from '../containers/List';
 import Shops from '../containers/Shops';
-import Transaction from '../containers/Transaction'
+import Transaction from '../containers/Transaction';
+
 class ContentRouter extends React.Component {
     render(){
+        console.log("Switch")
         return (
             <React.Fragment>
                 <Switch>
