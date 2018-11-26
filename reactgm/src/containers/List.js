@@ -62,13 +62,11 @@ class List extends React.Component {
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <div className="container" style={{ fontWeight: "bold" }}>
-                            <div className="row" style={{ color: "black" }}>
-                                <p style={{ color: 'black' }}>Confirm {this.state.odometer}</p>
-                                <p style={{color:'black'}}>Do Later</p>
+                        <div className="container" style={{ fontWeight: "bold",fontSize:'30px'}}>
+                            <div className="row" style={{ color: "black", alignContent:'center', align:'center' }}>
+                                    <button style={{ color: "black", alignContent:'center', align:'center' }} type="button" className="btn btn-default" onClick={e => this.schedule()}>Schedule Now</button>
+                                    <button style={{ color: "black", alignContent:'center', align:'center' }} type="button" className="btn btn-default" onClick={() => this.setState({show:false})}>No, Remind Me Later</button>
                                 <div>
-                                    <button type="button" className="btn btn-default" onClick={e => this.schedule()}>Schedule Now</button>
-                                    <button type="button" className="btn btn-default" onClick={e => this.closeApp()}>No, Remind Me Later</button>
                                 </div>
                             </div>
                         </div>

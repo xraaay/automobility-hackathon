@@ -83,14 +83,13 @@ class Layout extends React.Component {
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-
                         <div className="container" style={{ fontWeight: "bold" }}>
-                            <div className="row" style={{ color: "#000000" }}>
+                            <div className="row" style={{ color: "#000000", fontSize:'30px' }}>
                                 <p style={{ color: "#000000" }}>Your mileage has reached {this.state.odometer}</p>
                                 <p style={{ color: "#000000" }}>Would you like to schedule an appointment?</p>
                                 <div>
-                                    <button type="button" className="btn btn-default" onClick={e => this.redirect(1)}>Schedule Now</button>
-                                    <button type="button" className="btn btn-default" onClick={e => this.handleClose(e)}>No, remind me later</button>
+                                    <button type="button" className="btn btn-default" onClick={e => this.redirect(1)}>Make Appointment</button>
+                                    <button type="button" className="btn btn-default" onClick={e => this.handleClose(e)}>No, Not Yet</button>
                                 </div>
                             </div>
                         </div>
