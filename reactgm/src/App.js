@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styles from "./App.module.css";
 import "./App.css";
+import swal from 'sweetalert2' 
 import { BrowserRouter } from "react-router-dom";
 import Layout from "./Layout/Layout";
 import { Provider } from 'react-redux';
@@ -29,6 +30,8 @@ class App extends Component {
 
   render() {
     return (
+      <div>
+      {/* <button type="button" style={{position:'absolute', top: 100,left: 0}} onClick={this.handleClose}>Back</button> */}
       <Provider store={store}>
       <BrowserRouter>
         <div className={styles.root}>
@@ -38,6 +41,7 @@ class App extends Component {
         </div>
       </BrowserRouter>
       </Provider>
+      </div>
     );
   }
 }
