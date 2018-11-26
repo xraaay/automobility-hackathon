@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -29,4 +29,27 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+html #root{
+  background-color: '#000';
+  color: '#fff'
 }
+
+.home {
+  margin-top: 100px;
+  font-size: 2em;
+  color: '#fff';
+}
+
+.list {
+  color: '#fff';
+  background-color: '#000';
+  overflow: auto;
+  width: 1265px;
+  height: 660px;
+  padding-top: '15px';
+  font-size: '25px';
+}
+
+/* 1280 x 660 */

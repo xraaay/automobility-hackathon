@@ -24,6 +24,9 @@ class Layout extends React.Component {
                 this.props.history.push("/test")
                 break;
             case 3:
+                this.props.history.push("/list")
+                break;
+            case 4:
                 this.props.history.push("/shops")
                 break;
         }
