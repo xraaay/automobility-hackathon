@@ -1,12 +1,27 @@
 import React from 'react'
 import { Table } from 'react-bootstrap'
+import { connect } from 'react-redux'
 
 class List extends React.Component {
 
     render() {
+        const apptList = this.props.appointmentsReducer ? 
+            this.props.appointmentsReducer.map( item => {
+                return (
+                    <React.Fragment>
+                        <td key={item.id}>
+                        {/* <td>{item.appointmentTime}</td> */}
+                        <td>{item.shopName}</td>
+                        <td>{item.address}</td>
+                        </td>
+                    </React.Fragment>
+                )
+            })
+            :null
         return (
             <React.Fragment>
-                <Table hover>
+                {console.log(this.props.appointmentsReducer)}
+                <Table >
                     <thead>
                         <tr>
                             <th>#</th>
@@ -20,6 +35,7 @@ class List extends React.Component {
                     </thead>
                     <tbody>
                         <tr>
+                        {apptList}
                             <td>1</td>
                             <td>Table cell</td>
                             <td>Table cell</td>
@@ -53,4 +69,8 @@ class List extends React.Component {
     }
 }
 
-export default List;
+const mapStateToProps = (state) => ({
+    appointmentsReducer: state.appointmentsReducer
+})
+
+export default connect(mapStateToProps)(List);
