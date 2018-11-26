@@ -14,7 +14,6 @@ import List from './containers/List';
 const store = createStore(globalStore)
 
 const gm = window.gm;
-
 class App extends Component {
   state = {
     vin: "pending..."
