@@ -72,14 +72,20 @@ class Layout extends React.Component {
             console.log(data)
         }, ['odometer']);
 
+        gm.info.watchVehicleData(data => {
+            if (data.tire_ind === 1) {
+                this.props.history.push("/recalls")
+            }
+            console.log(data)
+        }, ['tire_ind']);
         // gm.info.getCurrent
     }
 
     componentDidUpdate(prevProps){
         if(prevProps.shopReducer !== this.props.shopReducer){
-            gm.info.getCurrentPosition(data => {
-                console.log(data)
-            })
+            // gm.info.getCurrentPosition(data => {
+            //     console.log(data)
+            // })
             gm.info.watchVehicleData (data => {
                 if(data.gps_lat > 152458800){
                     console.log(this.props.shopReducer)
