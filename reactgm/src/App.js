@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import styles from "./App.module.css";
-// import swal from 'sweetalert2' 
+import "./App.css";
+import swal from 'sweetalert2' 
 import { BrowserRouter } from "react-router-dom";
 import Layout from "./Layout/Layout";
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import globalStore from './reducers/index';
+import ContentRouter from './Layout/ContentRouter'
+import List from './containers/List';
 
 
 const store = createStore(globalStore)
@@ -31,10 +34,11 @@ class App extends Component {
       {/* <button type="button" style={{position:'absolute', top: 100,left: 0}} onClick={this.handleClose}>Back</button> */}
       <Provider store={store}>
       <BrowserRouter>
-        <div className={styles.root} style={{backgroundColor:'#000033'}}>
-          {/* <div>VIN: {this.state.vin}</div> */}
-          {/* <button onClick={this.schedule}>Schedule</button> */}
-          <Layout />
+        <div className={styles.root}>
+          <div>VIN: {this.state.vin}</div>
+          <button onClick={this.handleClose}>Close</button>
+          <List/>
+          <ContentRouter />
         </div>
       </BrowserRouter>
       </Provider>
