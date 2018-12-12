@@ -142,13 +142,13 @@ class Layout extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div className='button_div'>
+                {/* <div className='button_div'>
                 <button type="button" className="btn button" onClick={() => this.closeApp()}>Back</button>
                 <button type="button" className="btn button" onClick={e => this.redirect(1)}>Shops</button>
                 <button type="button" className="btn button" onClick={e => this.redirect(2)}>Appointments</button>
                 <button type="button" className="btn button" onClick={e => this.redirect(3)}>Wallet</button>
                 <button type="button" className="btn button" onClick={e => this.redirect(4)}>Recalls</button>
-                </div>
+                </div> */}
 
                 <ContentRouter />
                 <SpeedCheckModal speedCheck = {this.state.isCarMoving} handleCloseModal = {this.handleCloseModal}/>
